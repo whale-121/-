@@ -9,6 +9,7 @@ public class dd {
 		
 		System.out.println("dddgggggg");
 		System.out.println("ÀÌÁö¿õ");
+		System.out.println("ÀÌÁö¿õ");
 
 	}
 

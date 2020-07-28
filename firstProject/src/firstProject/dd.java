@@ -6,6 +6,8 @@ public class dd {
 		// TODO Auto-generated method stub
 		
 		System.out.println("프로젝트 화이팅");
+		
+		System.out.println("dddgggggg");
 
 	}
 

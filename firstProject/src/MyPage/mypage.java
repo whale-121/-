@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 public class mypage {
 
 	private JFrame frame;
+	private MemberDTO loginInfo = null;
 
 	/**
 	 * Launch the application.
@@ -86,10 +87,10 @@ public class mypage {
 		btn_info.setBounds(12, 72, 97, 97);
 		frame.getContentPane().add(btn_info);
 		
-		JButton button = new JButton("\uB0B4 \uD0C0\uC774\uD2C0");
+		JButton button = new JButton("\uB0B4 \uB9AC\uBDF0");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MyTitle mt = new MyTitle();
+				MyReview mr = new MyReview();
 			}
 		});
 		button.setBackground(SystemColor.inactiveCaptionBorder);
@@ -109,7 +110,7 @@ public class mypage {
 		JButton btn_del = new JButton("\uD68C\uC6D0 \uD0C8\uD1F4");
 		btn_del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MemberDel md = new MemberDel();
+				MemberDel md = new MemberDel(loginInfo);
 			}
 		});
 		btn_del.setBackground(SystemColor.inactiveCaptionBorder);

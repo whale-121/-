@@ -27,7 +27,7 @@ import java.awt.SystemColor;
 public class MainGUI {
 
 	private JFrame frame;
-	private JTextField tf_main_id;
+	public static JTextField tf_main_id;
 	private JPasswordField pf_main_pw;
 	MemberDTO loginInfo = null;
 	JButton btn_main_close;

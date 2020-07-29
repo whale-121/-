@@ -8,7 +8,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MyTitle {
+public class MyReview {
 
 	private JFrame frame;
 
@@ -31,7 +31,7 @@ public class MyTitle {
 	/**
 	 * Create the application.
 	 */
-	public MyTitle() {
+	public MyReview() {
 		initialize();
 		frame.setVisible(true);
 	}

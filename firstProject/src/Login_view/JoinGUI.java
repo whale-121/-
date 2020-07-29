@@ -207,19 +207,19 @@ public class JoinGUI {
 						sex = rb_join_woman.getText();
 					}
 					if (cb_join_action.isSelected()) {
-						likeGenre = "액션";
+						likeGenre = "action";
 					}else if(cb_join_comedy.isSelected()) {
-						likeGenre = "코미디";
+						likeGenre = "comedy";
 					}else if(cb_join_romence.isSelected()) {
-						likeGenre = "로멘스";
+						likeGenre = "romance";
 					}else if(cb_join_drama.isSelected()) {
-						likeGenre = "드라마";
+						likeGenre = "drama";
 					}else if(cb_join_SF.isSelected()) {
-						likeGenre = "SF/판타지";
+						likeGenre = "sffantasy";
 					}else if(cb_join_horror.isSelected()) {
-						likeGenre = "공포/스릴러";
+						likeGenre = "horrorthriller";
 					}else if(cb_join_animation.isSelected()) {
-						likeGenre = "애니메이션";
+						likeGenre = "animation";
 					}
 					int age = Integer.parseInt((String) cb_join_age.getSelectedItem());
 					if(pw.equals(pwCheck)) {

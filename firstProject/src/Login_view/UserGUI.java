@@ -71,6 +71,7 @@ public class UserGUI {
 		btn_write.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				writeReview wr = new writeReview();
+				frame.dispose();
 			}
 		});
 		btn_write.setFont(new Font("±¼¸²", Font.BOLD, 18));
@@ -81,7 +82,9 @@ public class UserGUI {
 		btn_mypage.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				mypage mp = new mypage();
+				
 			}
 		});
 		btn_mypage.setFont(new Font("±¼¸²", Font.BOLD, 18));

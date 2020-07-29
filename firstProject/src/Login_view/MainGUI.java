@@ -2,7 +2,6 @@ package Login_view;
 
 import java.awt.EventQueue;
 
-
 import javax.swing.JFrame;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
@@ -24,11 +23,12 @@ import java.lang.reflect.Member;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
 import java.awt.SystemColor;
+
 public class MainGUI {
 
 	private JFrame frame;
-	private JTextField tf_main_id;
-	private JPasswordField pf_main_pw;
+	public static JTextField tf_main_id;
+	public static JPasswordField pf_main_pw;
 	MemberDTO loginInfo = null;
 	JButton btn_main_close;
 	JButton btn_main_showReview;
@@ -37,6 +37,7 @@ public class MainGUI {
 	JLabel lbl_id;
 	JLabel lbl_pw;
 	JPanel panel;
+
 	/**
 	 * Launch the application.
 	 */
@@ -131,28 +132,34 @@ public class MainGUI {
 		lbl_pw.setFont(new Font("굴림", Font.BOLD, 16));
 		lbl_pw.setBounds(37, 105, 73, 34);
 		panel.add(lbl_pw);
-		
+
 		JButton btn_main_close = new JButton("\uB2EB\uAE30");
 		btn_main_close.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_main_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				int result = 0;
+				result = JOptionPane.showConfirmDialog(null, "종료하시겠습니까?", "종료",JOptionPane.YES_OPTION,JOptionPane.NO_OPTION);
+				if (result == 0) {
+					frame.dispose();
+				}
 			}
 		});
 		btn_main_close.setFont(new Font("굴림", Font.BOLD, 20));
 		btn_main_close.setBounds(49, 340, 389, 46);
 		panel.add(btn_main_close);
 	}
+
 	public void setLoginInfo(MemberDTO dto) {
 		loginInfo = dto;
-		JOptionPane.showMessageDialog(null, loginInfo.getNickName()+"님 환영합니다.");
-		if(loginInfo.getId().equals("admin")) {
+		JOptionPane.showMessageDialog(null, loginInfo.getNickName() + "님 환영합니다.");
+		if (loginInfo.getId().equals("admin")) {
 			frame.dispose();
 			AdminGUI admin = new AdminGUI();
-		}else {
+		} else {
 			frame.dispose();
 			UserGUI user = new UserGUI();
+
 		}
-		
+
 	}
 }

@@ -208,7 +208,6 @@ public class JoinGUI {
 					}
 					if (cb_join_action.isSelected()) {
 						likeGenre = "ACTION";
-
 					}else if(cb_join_comedy.isSelected()) {
 						likeGenre = "COMEDY";
 					}else if(cb_join_romence.isSelected()) {
@@ -218,7 +217,7 @@ public class JoinGUI {
 					}else if(cb_join_SF.isSelected()) {
 						likeGenre = "SFFANTASY";
 					}else if(cb_join_horror.isSelected()) {
-						likeGenre = "HORROTHRILLER";
+						likeGenre = "HORRORTHRILLER";
 					}else if(cb_join_animation.isSelected()) {
 						likeGenre = "ANIMATION";
 					}

@@ -78,6 +78,7 @@ public class MemberDAO {
 		int cnt = 0;
 		getConn();
 		String sql = "insert into member values(?,?,?,?,?,?,?,?)";
+		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());

@@ -190,10 +190,8 @@ public class JoinGUI {
 					String likeGenre = null;
 					String title = null;
 					if (rb_join_man.isSelected()) {
-						System.out.println(rb_join_man.getText());
 						sex = rb_join_man.getText();
 					} else if (rb_join_woman.isSelected()) {
-						System.out.println(rb_join_woman.getText());
 						sex = rb_join_woman.getText();
 					}
 					if (cb_join_action.isSelected()) {

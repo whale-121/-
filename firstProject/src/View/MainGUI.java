@@ -29,8 +29,13 @@ public class MainGUI {
 	private JTextField tf_main_id;
 	private JPasswordField pf_main_pw;
 	MemberDTO loginInfo = null;
-	
-
+	JButton btn_main_close;
+	JButton btn_main_showReview;
+	JButton btn_main_join;
+	JButton btn_main_logIn;
+	JLabel lbl_id;
+	JLabel lbl_pw;
+	JPanel panel;
 	/**
 	 * Launch the application.
 	 */
@@ -60,16 +65,16 @@ public class MainGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1200, 718);
+		frame.setBounds(100, 100, 600, 675);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btn_logIn = new JButton("\uB85C\uADF8\uC778");
-		btn_logIn.addActionListener(new ActionListener() {
+		btn_main_logIn = new JButton("\uB85C\uADF8\uC778");
+		btn_main_logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MemberDAO dao = new MemberDAO();
 				String id = tf_main_id.getText();
@@ -81,25 +86,24 @@ public class MainGUI {
 					JOptionPane.showMessageDialog(null, "·Î±×ÀÎ ½ÇÆÐ!", "·Î±×ÀÎ", JOptionPane.ERROR_MESSAGE);
 					pf_main_pw.setText("");
 				} else {
-					frame.dispose();
-					MainGUI mainGui = new MainGUI();
+					setLoginInfo(dto);
 				}
 			}
 		});
-		btn_logIn.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_logIn.setBounds(398, 267, 121, 60);
-		panel.add(btn_logIn);
+		btn_main_logIn.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		btn_main_logIn.setBounds(398, 267, 121, 60);
+		panel.add(btn_main_logIn);
 
-		JButton btn_joIn = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btn_joIn.addActionListener(new ActionListener() {
+		btn_main_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btn_main_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				JoinGUI joinGui = new JoinGUI();
 			}
 		});
-		btn_joIn.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_joIn.setBounds(88, 388, 389, 46);
-		panel.add(btn_joIn);
+		btn_main_join.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		btn_main_join.setBounds(88, 388, 389, 46);
+		panel.add(btn_main_join);
 
 		tf_main_id = new JTextField();
 		tf_main_id.setBounds(127, 255, 238, 34);
@@ -110,43 +114,38 @@ public class MainGUI {
 		pf_main_pw.setBounds(127, 302, 238, 34);
 		panel.add(pf_main_pw);
 
-		JLabel lblNewLabel = new JLabel("I D :");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(42, 258, 73, 34);
-		panel.add(lblNewLabel);
+		lbl_id = new JLabel("I D :");
+		lbl_id.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_id.setBounds(42, 258, 73, 34);
+		panel.add(lbl_id);
 
-		JLabel lblPw = new JLabel("P W :");
-		lblPw.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPw.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		lblPw.setBounds(42, 302, 73, 34);
-		panel.add(lblPw);
+		lbl_pw = new JLabel("P W :");
+		lbl_pw.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_pw.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_pw.setBounds(42, 302, 73, 34);
+		panel.add(lbl_pw);
 		
-		JButton btn_close = new JButton("\uB2EB\uAE30");
-		btn_close.addActionListener(new ActionListener() {
+		JButton btn_main_close = new JButton("\uB2EB\uAE30");
+		btn_main_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		btn_close.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_close.setBounds(88, 450, 389, 46);
-		panel.add(btn_close);
-
-		JPanel panel_1 = new JPanel();
-		frame.getContentPane().add(panel_1);
-		panel_1.setLayout(new CardLayout(0, 0));
-		
-		JLabel lbl_image = new JLabel(new ImageIcon(""));
-		panel_1.add(lbl_image, "name_1131022174943900");
+		btn_main_close.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		btn_main_close.setBounds(88, 450, 389, 46);
+		panel.add(btn_main_close);
 	}
 	public void setLoginInfo(MemberDTO dto) {
 		loginInfo = dto;
-//		btn_main_login.setVisible(false);
-//		btn_main_join.setVisible(false);
-		if(dto.getId().equals("admin")) {
-//			btn_admin_menu.setVisible(true);
-		}
-//		btn_main_logout.setVisible(true);
 		JOptionPane.showMessageDialog(null, loginInfo.getNickName()+"´Ô È¯¿µÇÕ´Ï´Ù.");
+		if(loginInfo.getId().equals("admin")) {
+			frame.dispose();
+			AdminGUI admin = new AdminGUI();
+		}else {
+			frame.dispose();
+			UserGUI user = new UserGUI();
+		}
+		
 	}
 }

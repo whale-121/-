@@ -1,4 +1,4 @@
-package View;
+package Login_view;
 
 import java.awt.EventQueue;
 

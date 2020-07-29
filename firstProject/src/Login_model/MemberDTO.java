@@ -1,4 +1,4 @@
-package model;
+package Login_model;
 
 public class MemberDTO {
 	private String id;

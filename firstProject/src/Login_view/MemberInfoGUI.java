@@ -1,10 +1,10 @@
-package View;
+package Login_view;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class WriteReviewGUI {
+public class MemberInfoGUI {
 
 	private JFrame frame;
 
@@ -15,7 +15,7 @@ public class WriteReviewGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WriteReviewGUI window = new WriteReviewGUI();
+					MemberInfoGUI window = new MemberInfoGUI();
 //					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +27,7 @@ public class WriteReviewGUI {
 	/**
 	 * Create the application.
 	 */
-	public WriteReviewGUI() {
+	public MemberInfoGUI() {
 		initialize();
 		frame.setVisible(true);
 	}
@@ -37,7 +37,7 @@ public class WriteReviewGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 739, 690);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 

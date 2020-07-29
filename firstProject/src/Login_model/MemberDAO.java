@@ -1,4 +1,4 @@
-package model;
+package Login_model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

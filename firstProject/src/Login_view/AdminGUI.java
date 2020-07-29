@@ -1,4 +1,4 @@
-package View;
+package Login_view;
 
 import java.awt.EventQueue;
 
@@ -8,10 +8,11 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import model.MemberDTO;
+import Login_model.MemberDTO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class AdminGUI {
 
@@ -50,21 +51,25 @@ public class AdminGUI {
 	private void initialize() {
 		
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 405, 474);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uD68C\uC6D0 \uC870\uD68C");
+		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		btnNewButton.setBounds(56, 48, 260, 57);
+		btnNewButton.setBounds(71, 61, 260, 57);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton button = new JButton("\uB9AC\uBDF0 \uAD00\uB9AC");
+		button.setBackground(SystemColor.inactiveCaptionBorder);
 		button.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button.setBounds(56, 130, 260, 57);
+		button.setBounds(71, 143, 260, 57);
 		frame.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("\uB85C\uADF8\uC544\uC6C3");
+		button_1.setBackground(SystemColor.inactiveCaptionBorder);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loginInfo = null;
@@ -74,12 +79,13 @@ public class AdminGUI {
 			}
 		});
 		button_1.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button_1.setBounds(56, 293, 260, 57);
+		button_1.setBounds(71, 306, 260, 57);
 		frame.getContentPane().add(button_1);
 		
 		JButton button_2 = new JButton("\uC601\uD654\uC815\uBCF4\uAD00\uB9AC");
+		button_2.setBackground(SystemColor.inactiveCaptionBorder);
 		button_2.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button_2.setBounds(56, 212, 260, 57);
+		button_2.setBounds(71, 225, 260, 57);
 		frame.getContentPane().add(button_2);
 	}
 

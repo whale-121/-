@@ -1,4 +1,4 @@
-package View;
+package Login_view;
 
 import java.awt.EventQueue;
 
@@ -15,14 +15,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
-import model.MemberDAO;
-import model.MemberDTO;
-import View.MainGUI;
+import Login_model.MemberDAO;
+import Login_model.MemberDTO;
+import Login_view.MainGUI;
 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Member;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
+import java.awt.SystemColor;
 public class MainGUI {
 
 	private JFrame frame;
@@ -65,15 +66,19 @@ public class MainGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 675);
+		frame.setBackground(SystemColor.text);
+		frame.getContentPane().setBackground(SystemColor.text);
+		frame.setBounds(100, 100, 503, 458);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 
 		panel = new JPanel();
+		panel.setBackground(SystemColor.text);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		btn_main_logIn = new JButton("\uB85C\uADF8\uC778");
+		btn_main_logIn.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_main_logIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MemberDAO dao = new MemberDAO();
@@ -91,10 +96,11 @@ public class MainGUI {
 			}
 		});
 		btn_main_logIn.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_main_logIn.setBounds(398, 267, 121, 60);
+		btn_main_logIn.setBounds(49, 211, 389, 46);
 		panel.add(btn_main_logIn);
 
 		btn_main_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btn_main_join.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_main_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -102,38 +108,39 @@ public class MainGUI {
 			}
 		});
 		btn_main_join.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_main_join.setBounds(88, 388, 389, 46);
+		btn_main_join.setBounds(49, 278, 389, 46);
 		panel.add(btn_main_join);
 
 		tf_main_id = new JTextField();
-		tf_main_id.setBounds(127, 255, 238, 34);
+		tf_main_id.setBounds(122, 58, 304, 34);
 		panel.add(tf_main_id);
 		tf_main_id.setColumns(10);
 
 		pf_main_pw = new JPasswordField();
-		pf_main_pw.setBounds(127, 302, 238, 34);
+		pf_main_pw.setBounds(122, 105, 304, 34);
 		panel.add(pf_main_pw);
 
 		lbl_id = new JLabel("I D :");
 		lbl_id.setFont(new Font("±¼¸²", Font.BOLD, 16));
 		lbl_id.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_id.setBounds(42, 258, 73, 34);
+		lbl_id.setBounds(37, 61, 73, 34);
 		panel.add(lbl_id);
 
 		lbl_pw = new JLabel("P W :");
 		lbl_pw.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_pw.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		lbl_pw.setBounds(42, 302, 73, 34);
+		lbl_pw.setBounds(37, 105, 73, 34);
 		panel.add(lbl_pw);
 		
 		JButton btn_main_close = new JButton("\uB2EB\uAE30");
+		btn_main_close.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_main_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
 		btn_main_close.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_main_close.setBounds(88, 450, 389, 46);
+		btn_main_close.setBounds(49, 340, 389, 46);
 		panel.add(btn_main_close);
 	}
 	public void setLoginInfo(MemberDTO dto) {

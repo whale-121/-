@@ -218,7 +218,7 @@ public class JoinGUI {
 					}else if(cb_join_SF.isSelected()) {
 						likeGenre = "SFFANTASY";
 					}else if(cb_join_horror.isSelected()) {
-						likeGenre = "HORROTHRILLER";
+						likeGenre = "HORRORTHRILLER";
 					}else if(cb_join_animation.isSelected()) {
 						likeGenre = "ANIMATION";
 					}

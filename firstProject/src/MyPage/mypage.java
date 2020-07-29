@@ -1,21 +1,18 @@
 package MyPage;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import Login_model.MemberDTO;
-
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JTable;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.SystemColor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import Login_view.UserGUI;
 
 public class mypage {
 
@@ -70,6 +67,7 @@ public class mypage {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				UserGUI ug = new UserGUI();
 			}
 			
 		});
@@ -110,7 +108,8 @@ public class mypage {
 		JButton btn_del = new JButton("\uD68C\uC6D0 \uD0C8\uD1F4");
 		btn_del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MemberDel md = new MemberDel(loginInfo);
+				frame.dispose();
+				MemberDel md = new MemberDel();
 			}
 		});
 		btn_del.setBackground(SystemColor.inactiveCaptionBorder);

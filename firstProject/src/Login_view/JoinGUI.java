@@ -208,6 +208,7 @@ public class JoinGUI {
 					}
 					if (cb_join_action.isSelected()) {
 						likeGenre = "ACTION";
+
 					}else if(cb_join_comedy.isSelected()) {
 						likeGenre = "COMEDY";
 					}else if(cb_join_romence.isSelected()) {

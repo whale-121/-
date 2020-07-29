@@ -58,7 +58,6 @@ public class UserGUI {
 		btn_view.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_view.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				GenreGUI genre = new GenreGUI();
 			}
 		});
@@ -81,7 +80,9 @@ public class UserGUI {
 		btn_mypage.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				mypage mp = new mypage();
+				
 			}
 		});
 		btn_mypage.setFont(new Font("±¼¸²", Font.BOLD, 18));

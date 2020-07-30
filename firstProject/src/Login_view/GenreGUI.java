@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import Genre_Review.Action_Review;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
@@ -51,6 +54,12 @@ public class GenreGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btn_action = new JButton("\uC561\uC158");
+		btn_action.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Action_Review AR = new Action_Review();
+			}
+		});
 		btn_action.setFont(new Font("±¼¸²", Font.PLAIN, 11));
 		btn_action.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_action.setBounds(36, 72, 97, 78);

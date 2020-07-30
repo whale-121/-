@@ -11,14 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-<<<<<<< HEAD
 import Genre_Review.Show_Reivew;
-=======
-
 import Login_model.MemberDTO;
-
-import Genre_Review.Action_Review;
->>>>>>> refs/remotes/origin/master
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

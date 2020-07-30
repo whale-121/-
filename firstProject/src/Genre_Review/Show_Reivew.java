@@ -11,6 +11,7 @@ import Controller.TableModelChange;
 import Controller.TableModelChange_RV;
 import Genre_Review_Model.ReviewDAO;
 import Login_model.MemberDAO;
+import Login_model.MemberDTO;
 import Login_view.GenreGUI;
 
 import javax.swing.JScrollPane;
@@ -33,7 +34,7 @@ public class Show_Reivew {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					Show_Reivew window = new Show_Reivew(genre);
+					Show_Reivew window = new Show_Reivew(genre);
 //					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -90,7 +91,8 @@ public class Show_Reivew {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				GenreGUI gg = new GenreGUI();
+				MemberDTO dto = null;
+				GenreGUI gg = new GenreGUI(dto);
 			}
 		});
 		btn_close.setBounds(653, 610, 203, 35);

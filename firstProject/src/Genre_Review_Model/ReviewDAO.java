@@ -76,5 +76,36 @@ public class ReviewDAO {
 		}
 		return reviewList;
 	}
+	
+	public ArrayList<ReviewDTO> select_nn(String nickname) {
+		
+		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		getConn();
+		String sql = "select * from reviews where MEM_NN = ? order by review_no asc";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,nickname);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				int reviewNumber = rs.getInt(1);
+				String nickName = rs.getString(2);
+				String genre = rs.getString(3);
+				String movieName = rs.getString(4);
+				int point = rs.getInt(5);
+				String reviewName = rs.getString(6);
+				String reviewCont = rs.getString(7);
+				String reviewDate = rs.getString(8);
+				reviewList.add(new ReviewDTO(reviewNumber, nickName, genre, movieName, point, reviewName, reviewCont, reviewDate));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return reviewList;
+	}
+	
+	
 
 }

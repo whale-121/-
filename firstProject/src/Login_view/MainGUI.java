@@ -158,7 +158,7 @@ public class MainGUI {
          AdminGUI admin = new AdminGUI();
       } else {
          frame.dispose();
-         UserGUI user = new UserGUI();
+         UserGUI user = new UserGUI(dto);
 
       }
 

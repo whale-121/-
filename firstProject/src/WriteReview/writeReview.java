@@ -1,23 +1,26 @@
 package WriteReview;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.SystemColor;
-import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.JRadioButton;
-import java.awt.Color;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
+
+import Login_model.MemberDTO;
 
 public class writeReview {
 
@@ -46,15 +49,15 @@ public class writeReview {
 	/**
 	 * Create the application.
 	 */
-	public writeReview() {
-		initialize();
+	public writeReview(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.getContentPane().setLayout(null);
@@ -186,6 +189,23 @@ public class writeReview {
 		btn_save.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_save.setBounds(187, 572, 97, 23);
 		frame.getContentPane().add(btn_save);
+		
+		JLabel lbl_name = new JLabel("New label");
+		lbl_name.setBounds(75, 50, 154, 15);
+		frame.getContentPane().add(lbl_name);
+		lbl_name.setText(dto.getNickName());
+		
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+		      
+		Date time = new Date();
+		String time1 = format1.format(time);
+		      
+		
+		
+		JLabel lbl_date = new JLabel("New label");
+		lbl_date.setBounds(98, 75, 154, 15);
+		frame.getContentPane().add(lbl_date);
+		lbl_date.setText(time1);
 		
 	}
 }

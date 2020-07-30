@@ -18,35 +18,36 @@ public class UserGUI {
 
 	private JFrame frame;
 	MemberDTO loginInfo;
+	public static MemberDTO dto;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserGUI window = new UserGUI();
-//					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					UserGUI window = new UserGUI(dto);
+////					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public UserGUI() {
-		initialize();
+	public UserGUI(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBackground(SystemColor.text);
@@ -58,7 +59,7 @@ public class UserGUI {
 		btn_view.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_view.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GenreGUI genre = new GenreGUI();
+				GenreGUI genre = new GenreGUI(dto);
 			}
 		});
 		btn_view.setFont(new Font("±¼¸²", Font.BOLD, 18));
@@ -69,7 +70,7 @@ public class UserGUI {
 		btn_write.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_write.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				writeReview wr = new writeReview();
+				writeReview wr = new writeReview(dto);
 			}
 		});
 		btn_write.setFont(new Font("±¼¸²", Font.BOLD, 18));
@@ -81,7 +82,7 @@ public class UserGUI {
 		btn_mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				mypage mp = new mypage();
+				mypage mp = new mypage(dto);
 				
 			}
 		});

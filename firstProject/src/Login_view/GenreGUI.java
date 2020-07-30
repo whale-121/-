@@ -1,18 +1,29 @@
 package Login_view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+<<<<<<< HEAD
 import Genre_Review.Show_Reivew;
+=======
+
+import Login_model.MemberDTO;
+
+import Genre_Review.Action_Review;
+>>>>>>> refs/remotes/origin/master
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+
 
 public class GenreGUI {
 	JButton btn_action;
@@ -28,31 +39,31 @@ public class GenreGUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GenreGUI window = new GenreGUI();
-//					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					GenreGUI window = new GenreGUI();
+////					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public GenreGUI() {
-		initialize();
+	public GenreGUI(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBackground(SystemColor.text);
@@ -153,7 +164,7 @@ public class GenreGUI {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				UserGUI user = new UserGUI();
+				UserGUI user = new UserGUI(dto);
 			}
 		});
 		btn_close.setBounds(436, 194, 93, 78);

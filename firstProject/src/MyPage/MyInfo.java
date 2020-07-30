@@ -14,11 +14,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.Color;
+import javax.swing.ButtonGroup;
+import javax.swing.event.AncestorListener;
+
+import Login_model.MemberDTO;
+
+import javax.swing.event.AncestorEvent;
 
 public class MyInfo {
 
 	private JFrame frame;
 	private JTable table;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	public static MemberDTO dto;
+	
 
 	/**
 	 * Launch the application.
@@ -27,7 +36,7 @@ public class MyInfo {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
 //				try {
-//					MyInfo window = new MyInfo();
+//					MyInfo window = new MyInfo(dto);
 //					window.frame.setVisible(true);
 //				} catch (Exception e) {
 //					e.printStackTrace();
@@ -39,15 +48,15 @@ public class MyInfo {
 	/**
 	 * Create the application.
 	 */
-	public MyInfo() {
-		initialize();
+	public MyInfo(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame("내 정보 보기");
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 600, 400);
@@ -106,59 +115,109 @@ public class MyInfo {
 		label_3.setBounds(34, 177, 83, 15);
 		frame.getContentPane().add(label_3);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(79, 57, 57, 15);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lbl_name = new JLabel("New label");
+		lbl_name.setBounds(79, 57, 57, 15);
+		lbl_name.setText(dto.getName());
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(79, 87, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		frame.getContentPane().add(lbl_name);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(79, 117, 57, 15);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel lbl_age = new JLabel("New label");
+		lbl_age.setBounds(79, 87, 57, 15);
+		lbl_age.setText(""+dto.getAge());
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setBounds(79, 147, 57, 15);
-		frame.getContentPane().add(lblNewLabel_5);
+		frame.getContentPane().add(lbl_age);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setBounds(129, 177, 57, 15);
-		frame.getContentPane().add(lblNewLabel_6);
+		JLabel lbl_sex = new JLabel("New label");
+		lbl_sex.setBounds(79, 117, 57, 15);
+		frame.getContentPane().add(lbl_sex);
+		lbl_sex.setText(dto.getSex());
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("\uC561\uC158");
-		rdbtnNewRadioButton.setBackground(SystemColor.text);
-		rdbtnNewRadioButton.setBounds(34, 204, 57, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		JLabel lbl_nick = new JLabel("New label");
+		lbl_nick.setBounds(79, 147, 57, 15);
+		frame.getContentPane().add(lbl_nick);
+		lbl_nick.setText(dto.getNickName());
 		
-		JRadioButton radioButton = new JRadioButton("\uCF54\uBBF8\uB514");
-		radioButton.setBackground(Color.WHITE);
-		radioButton.setBounds(34, 235, 61, 23);
-		frame.getContentPane().add(radioButton);
+		JLabel lbl_genre = new JLabel();
+		lbl_genre.setBounds(129, 177, 114, 15);
+		frame.getContentPane().add(lbl_genre);
+		lbl_genre.setText(dto.getLikeGenre());
 		
-		JRadioButton radioButton_1 = new JRadioButton("\uB85C\uB9E8\uC2A4");
-		radioButton_1.setBackground(Color.WHITE);
-		radioButton_1.setBounds(34, 269, 69, 23);
-		frame.getContentPane().add(radioButton_1);
+		JRadioButton rdbtnac = new JRadioButton("\uC561\uC158");
+		rdbtnac.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("액션");
+			}
+		});
+		buttonGroup.add(rdbtnac);
+		rdbtnac.setBackground(SystemColor.text);
+		rdbtnac.setBounds(34, 204, 57, 23);
+		frame.getContentPane().add(rdbtnac);
 		
-		JRadioButton radioButton_2 = new JRadioButton("\uACF5\uD3EC/\uC2A4\uB9B4\uB7EC");
-		radioButton_2.setBackground(Color.WHITE);
-		radioButton_2.setBounds(129, 269, 97, 23);
-		frame.getContentPane().add(radioButton_2);
+		
+		JRadioButton rrdbtnco = new JRadioButton("\uCF54\uBBF8\uB514");
+		rrdbtnco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("코미디");
+			}
+		});
+		buttonGroup.add(rrdbtnco);
+		rrdbtnco.setBackground(Color.WHITE);
+		rrdbtnco.setBounds(34, 235, 83, 23);
+		frame.getContentPane().add(rrdbtnco);
+		
+		JRadioButton rdbtnro = new JRadioButton("\uB85C\uB9E8\uC2A4");
+		rdbtnro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("로맨스");
+			}
+		});
+		buttonGroup.add(rdbtnro);
+		rdbtnro.setBackground(Color.WHITE);
+		rdbtnro.setBounds(34, 269, 69, 23);
+		frame.getContentPane().add(rdbtnro);
+		
+		JRadioButton rdbtnho = new JRadioButton("\uACF5\uD3EC/\uC2A4\uB9B4\uB7EC");
+		rdbtnho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("공포/스릴러");
+			}
+		});
+		buttonGroup.add(rdbtnho);
+		rdbtnho.setBackground(Color.WHITE);
+		rdbtnho.setBounds(129, 269, 97, 23);
+		frame.getContentPane().add(rdbtnho);
 		
 		JRadioButton rdbtnSf = new JRadioButton("SF/\uD310\uD0C0\uC9C0");
+		rdbtnSf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("SF/판타지");
+			}
+		});
+		buttonGroup.add(rdbtnSf);
 		rdbtnSf.setBackground(Color.WHITE);
 		rdbtnSf.setBounds(129, 205, 83, 23);
 		frame.getContentPane().add(rdbtnSf);
 		
-		JRadioButton radioButton_3 = new JRadioButton("\uC560\uB2C8\uBA54\uC774\uC158");
-		radioButton_3.setBackground(Color.WHITE);
-		radioButton_3.setBounds(129, 239, 97, 23);
-		frame.getContentPane().add(radioButton_3);
+		JRadioButton rdbtnan = new JRadioButton("\uC560\uB2C8\uBA54\uC774\uC158");
+		rdbtnan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("애니메이션");
+			}
+		});
+		buttonGroup.add(rdbtnan);
+		rdbtnan.setBackground(Color.WHITE);
+		rdbtnan.setBounds(129, 239, 97, 23);
+		frame.getContentPane().add(rdbtnan);
 		
-		JRadioButton radioButton_4 = new JRadioButton("\uB4DC\uB77C\uB9C8");
-		radioButton_4.setBackground(Color.WHITE);
-		radioButton_4.setBounds(34, 301, 69, 23);
-		frame.getContentPane().add(radioButton_4);
+		JRadioButton rdbtndr = new JRadioButton("\uB4DC\uB77C\uB9C8");
+		rdbtndr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lbl_genre.setText("드라마");
+			}
+		});
+		buttonGroup.add(rdbtndr);
+		rdbtndr.setBackground(Color.WHITE);
+		rdbtndr.setBounds(34, 301, 69, 23);
+		frame.getContentPane().add(rdbtndr);
 	}
 }

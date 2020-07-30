@@ -43,15 +43,15 @@ public class MemberDel {
    /**
     * Create the application.
     */
-   public MemberDel() {
-      initialize();
+   public MemberDel(MemberDTO dto) {
+      initialize(dto);
       frame.setVisible(true);
    }
 
    /**
     * Initialize the contents of the frame.
     */
-   private void initialize() {
+   private void initialize(MemberDTO dto) {
       frame = new JFrame("È¸¿ø Å»Åð");
       frame.getContentPane().setBackground(SystemColor.text);
       frame.setBounds(100, 100, 450, 230);
@@ -113,7 +113,7 @@ public class MemberDel {
       btn_close.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
-            UserGUI ug = new UserGUI();
+            UserGUI ug = new UserGUI(dto);
          }
       });
       btn_close.setBackground(SystemColor.inactiveCaptionBorder);

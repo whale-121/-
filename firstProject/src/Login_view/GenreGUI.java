@@ -27,6 +27,7 @@ public class GenreGUI {
 	JButton btn_hrror;
 	JButton btn_SF;
 	JButton btn_ani;
+	public static String genre;
 
 	private JFrame frame;
 
@@ -70,6 +71,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("ACTION");
+				genre = "ACTION";
 //				Action_Review AR = new Action_Review();
 				
 			}
@@ -84,6 +86,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("COMEDY");
+				genre = "COMEDY";
 //				AR.setGenre("comedy");
 			}
 		});
@@ -97,6 +100,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("DRAMA");
+				genre = "DRAMA";
 			}
 		});
 		btn_drama.setFont(new Font("±¼¸²", Font.PLAIN, 11));
@@ -109,6 +113,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("ROMANCE");
+				genre = "ROMANCE";
 			}
 		});
 		btn_romance.setFont(new Font("±¼¸²", Font.PLAIN, 11));
@@ -121,6 +126,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("HORRORTHRILLER");
+				genre = "HORRORTHRILLER";
 			}
 		});
 		btn_hrror.setBackground(SystemColor.inactiveCaptionBorder);
@@ -133,6 +139,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("SFFANTASY");
+				genre = "SFFANTASY";
 			}
 		});
 		btn_SF.setFont(new Font("±¼¸²", Font.PLAIN, 11));
@@ -145,6 +152,7 @@ public class GenreGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Show_Reivew AR = new Show_Reivew("ANIMATION");
+				genre = "ANIMATION";
 			}
 		});
 		btn_ani.setFont(new Font("±¼¸²", Font.PLAIN, 11));

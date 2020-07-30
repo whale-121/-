@@ -11,6 +11,12 @@ public class MemberDTO {
 	private String title;
 	
 	
+	
+	public MemberDTO() {
+		super();
+	}
+
+
 	public MemberDTO(String id, String pw, String nickName, String name, int age, String sex, String likeGenre,
 			String title) {
 		super();

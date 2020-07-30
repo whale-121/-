@@ -88,7 +88,7 @@ public class mypage {
 		JButton button = new JButton("\uB0B4 \uB9AC\uBDF0");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MyReview mr = new MyReview();
+				MyReview mr = new MyReview(dto);
 			}
 		});
 		button.setBackground(SystemColor.inactiveCaptionBorder);

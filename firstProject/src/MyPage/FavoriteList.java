@@ -3,13 +3,18 @@ package MyPage;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
+import Controller.TableModelChange_FA;
+import Controller.TableModelChange_RV;
+import Fav_model.favDAO;
 import Login_model.MemberDTO;
 
 public class FavoriteList {
@@ -45,6 +50,7 @@ public class FavoriteList {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO dto) {
+		System.out.println(dto.getNickName()+"asdflkjasfdkl");
 		frame = new JFrame("즐겨찾기 목록");
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 619, 439);
@@ -56,12 +62,25 @@ public class FavoriteList {
 		scrollPane.setBounds(12, 49, 579, 298);
 		frame.getContentPane().add(scrollPane);
 		
-		String[] colName = {"NICKNAME", "REVIEWS", "TITLE"};
-		DefaultTableModel model = new DefaultTableModel(colName,0);
-		table = new JTable(model);
+		String[] colName = {"TITLE", "NICKNAME", "REVIEWS"};
+		favDAO dao = new favDAO();
+		TableModelChange_FA modelCh = new TableModelChange_FA (dao.select());
+		Object[][] data = modelCh.FavList();
+		table = new JTable(data, colName);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int index = table.getSelectedRow();
+				TableModel model = table.getModel();
+				String f = (String) model.getValueAt(index, 1);
+				
+				FavReview mrl = new FavReview(f, dto);
+				frame.dispose();
+			}
+		});
 		table.setBackground(SystemColor.text);
 		scrollPane.setViewportView(table);
-		RemoveAction rmaction = new RemoveAction(table);
+//		RemoveAction rmaction = new RemoveAction(table);
 		
 		JButton btn_back = new JButton("\uB2EB\uAE30");
 		btn_back.addActionListener(new ActionListener() {
@@ -88,13 +107,10 @@ public class FavoriteList {
 		btn_look.setBounds(418, 357, 97, 33);
 		frame.getContentPane().add(btn_look);
         
-        btn_Del.addActionListener( new ActionListener(){
+//        btn_Del.addActionListener( new ActionListener(){
+//        	public void actionPerformed(ActionEvent e) {
+//        		rmaction.actionPerformed(e);            
+//        	}
         	
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		rmaction.actionPerformed(e);            
-        	}
-        	
-        });
 	}
 }

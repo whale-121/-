@@ -39,6 +39,7 @@ public class mypage {
 	 * Create the application.
 	 */
 	public mypage(MemberDTO dto) {
+		
 		initialize(dto);
 		frame.setVisible(true);
 	}

@@ -2,11 +2,13 @@ package Controller;
 
 import java.util.ArrayList;
 
+import Fav_model.favDTO;
 import Genre_Review_Model.ReviewDTO;
 
 public class TableModelChange_RV {
 	
 	ArrayList<ReviewDTO> reviewList;
+	ArrayList<favDTO> favList;
 	
 	public TableModelChange_RV(ArrayList<ReviewDTO> reviewList) {
 		

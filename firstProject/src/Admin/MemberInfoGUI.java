@@ -110,5 +110,11 @@ public class MemberInfoGUI {
 		});
 		btn_memberDel.setBounds(12, 549, 97, 37);
 		frame.getContentPane().add(btn_memberDel);
+		System.out.println("adsd");
 	}
+//	public void jTableRefresh(){
+//		r dao = new MemberDAO();
+//		DefaultTableModel model= new DefaultTableModel(dao.getMemberList(), getColumn());
+//		table.setModel(model);
+//		}
 }

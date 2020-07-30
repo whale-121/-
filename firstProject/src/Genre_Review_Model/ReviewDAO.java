@@ -65,7 +65,7 @@ public class ReviewDAO {
 		
 		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
 		getConn();
-		String sql = "select * from reviews";
+		String sql = "select * from reviews order by review_no asc";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

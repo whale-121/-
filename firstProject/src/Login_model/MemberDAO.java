@@ -63,7 +63,7 @@ public class MemberDAO {
 				String sex = rs.getString(6);
 				String likeGenre = rs.getString(7);
 				String title = rs.getString(8);
-				dto = new MemberDTO(loginId, pw, nickName, nickName, age, sex, likeGenre, title);
+				dto = new MemberDTO(loginId, pw, nickName, name, age, sex, likeGenre, title);
 			}
 			
 		} catch (SQLException e) {
@@ -112,6 +112,21 @@ public class MemberDAO {
 			close();
 		}
 		return cnt;
+	} 
+	public int admin_MemberDel (String id) {
+		int cnt = 0;
+		getConn();
+		String sql = "delete from member where id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
 	}
 	
 	public ArrayList<MemberDTO> memberInfoSelect(){
@@ -131,7 +146,7 @@ public class MemberDAO {
 				String sex = rs.getString(6);
 				String likeGenre = rs.getString(7);
 				String title = rs.getString(8);
-				memberList.add(new MemberDTO(id, pw, nickName, nickName, age, sex, likeGenre, title));
+				memberList.add(new MemberDTO(id, pw, nickName, name, age, sex, likeGenre, title));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

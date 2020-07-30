@@ -48,14 +48,14 @@ public class ReviewDAO {
 
 	}
 	
-	public ArrayList<ReviewDTO> select() {
+	public ArrayList<ReviewDTO> select(String Genre) {
 		
 		ArrayList<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
 		getConn();
-		String sql = "select * from reviews";
+		String sql = "select * from reviews where genre = ? order by review_no asc";
 		try {
 			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1,Genre);
+			psmt.setString(1,Genre);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				int reviewNumber = rs.getInt(1);

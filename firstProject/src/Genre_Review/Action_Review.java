@@ -1,4 +1,4 @@
-package Login_view;
+package Genre_Review;
 
 import java.awt.EventQueue;
 
@@ -8,12 +8,14 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import Controller.TableModelChange;
+import Controller.TableModelChange_RV;
+import Genre_Review_Model.ReviewDAO;
 import Login_model.MemberDAO;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class MemberInfoGUI {
+public class Action_Review {
 
 	private JFrame frame;
 	private JTable table;
@@ -25,8 +27,8 @@ public class MemberInfoGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberInfoGUI window = new MemberInfoGUI();
-//					window.frame.setVisible(true);
+					Action_Review window = new Action_Review();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,9 +39,8 @@ public class MemberInfoGUI {
 	/**
 	 * Create the application.
 	 */
-	public MemberInfoGUI() {
+	public Action_Review() {
 		initialize();
-		frame.setVisible(true);
 	}
 
 	/**
@@ -47,29 +48,29 @@ public class MemberInfoGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 777, 635);
+		frame.setBounds(100, 100, 761, 597);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uC815\uBCF4");
-		lblNewLabel.setBounds(12, 23, 737, 43);
+		JLabel lblNewLabel = new JLabel("\uC561\uC158 \uC601\uD654 \uB9AC\uBDF0");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 20));
+		lblNewLabel.setBounds(12, 34, 721, 41);
 		frame.getContentPane().add(lblNewLabel);
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 83, 737, 477);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(12, 85, 721, 443);
 		frame.getContentPane().add(scrollPane);
 		
-		String[] colName = { "ID", "PW", "닉네임", "이름", "나이", "성별","좋아하는 장르","타이틀" };
-//		String[] colName = {"게시번호", "타이틀", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜"};
 		
-		MemberDAO dao = new MemberDAO();
-		TableModelChange modelCh = new TableModelChange(dao.memberInfoSelect());
-		Object[][] data = modelCh.listTypeChange();
+		String[] colName = {"게시번호", "타이틀", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜"};
+		ReviewDAO dao = new ReviewDAO();
+		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select());
+		Object[][] data = modelCh.listTypeChange_RV();
+		
+		table = new JTable(data,colName);
+		scrollPane.setViewportView(table);
 		
 
-		table = new JTable(data, colName);
-		scrollPane.setViewportView(table);
 	}
 }

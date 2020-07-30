@@ -63,7 +63,7 @@ public class Action_Review {
 		frame.getContentPane().add(scrollPane);
 		
 
-		String[] colName = { "게시번호", "타이틀", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
+		String[] colName = {"게시번호", "타이틀", "닉네임",};
 //		ReviewDAO dao = new ReviewDAO();
 //		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select());
 		Object[][] data= {{"1", "어쩌고저쩌고", "dasfjnsd", "액션", "반도", "4", "랄랄라", "랄랄라", "2020-07-30"}};

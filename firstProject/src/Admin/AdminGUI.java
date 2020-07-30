@@ -1,4 +1,4 @@
-package Login_view;
+package Admin;
 
 import java.awt.EventQueue;
 
@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import Login_model.MemberDTO;
+import Login_view.MainGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -57,6 +58,12 @@ public class AdminGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uD68C\uC6D0 \uC870\uD68C");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				MemberInfoGUI MI = new MemberInfoGUI();
+			}
+		});
 		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 18));
 		btnNewButton.setBounds(71, 61, 260, 57);

@@ -112,6 +112,21 @@ public class MemberDAO {
 			close();
 		}
 		return cnt;
+	} 
+	public int admin_MemberDel (String id) {
+		int cnt = 0;
+		getConn();
+		String sql = "delete from member where id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return cnt;
 	}
 	
 	public ArrayList<MemberDTO> memberInfoSelect(){

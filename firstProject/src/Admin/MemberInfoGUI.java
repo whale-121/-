@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
@@ -24,7 +26,7 @@ public class MemberInfoGUI {
 	private JFrame frame;
 	private JTable table;
 	public static String id;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -92,29 +94,30 @@ public class MemberInfoGUI {
 		JButton btn_memberDel = new JButton("\uD68C\uC6D0\uC0AD\uC81C");
 		btn_memberDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MemberDAO dao = new MemberDAO();
-				
-				int b = table.getSelectedRow();
-				id = (String) table.getValueAt(b, 0);
-				dao.admin_MemberDel(id);
-//				MemberInfoGUI miGui = new MemberInfoGUI();
-//				frame.setVisible(false);
-//				frame.setVisible(true);
-//				table.repaint();
-				DefaultTableModel dm = (DefaultTableModel)table.getModel();
-				dm.fireTableDataChanged();
-				table.getIgnoreRepaint();
+			
+				int result = 0;
+	            result = JOptionPane.showConfirmDialog(null, "회원을 삭제하겠습니까?", "회원삭제",JOptionPane.YES_OPTION,JOptionPane.NO_OPTION);
+	            if (result == 0) {
+	               MemberDAO dao = new MemberDAO();
+	               int b = table.getSelectedRow();
+	               id = (String) table.getValueAt(b, 0);
+	               dao.admin_MemberDel(id);
+	               JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다");
+	               jTableRefresh();
+	            }
 				
 				
 			}
 		});
 		btn_memberDel.setBounds(12, 549, 97, 37);
 		frame.getContentPane().add(btn_memberDel);
-		System.out.println("adsd");
 	}
-//	public void jTableRefresh(){
-//		r dao = new MemberDAO();
-//		DefaultTableModel model= new DefaultTableModel(dao.getMemberList(), getColumn());
-//		table.setModel(model);
-//		}
+	public void jTableRefresh(){
+		MemberDAO dao = new MemberDAO();
+		String[] colName = { "ID", "PW", "닉네임", "이름", "나이", "성별","좋아하는 장르","타이틀" };
+		TableModelChange modelCh = new TableModelChange(dao.memberInfoSelect());
+		Object[][] data = modelCh.listTypeChange();
+		DefaultTableModel model= new DefaultTableModel(data, colName);
+		table.setModel(model);
+		}
 }

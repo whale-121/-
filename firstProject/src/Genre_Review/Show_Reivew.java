@@ -110,11 +110,13 @@ public class Show_Reivew {
 		tf_search.setColumns(10);
 		
 		cb_searchType = new JComboBox();
+		cb_searchType.setBackground(SystemColor.inactiveCaptionBorder);
 		cb_searchType.setModel(new DefaultComboBoxModel(new String[] {"\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784"}));
 		cb_searchType.setBounds(156, 95, 97, 29);
 		frame.getContentPane().add(cb_searchType);
 		
 		JButton btn_search = new JButton("\uAC80\uC0C9");
+		btn_search.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -125,6 +127,7 @@ public class Show_Reivew {
 		frame.getContentPane().add(btn_search);
 		
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
+		btn_reset.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableReset();

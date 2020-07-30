@@ -14,11 +14,12 @@ package Controller;
 		}
 
 		public Object[][] FavList(){
-			Object[][] data = new Object[favList.size()][3];
+			Object[][] data = new Object[favList.size()][4];
 			for(int i = 0; i<data.length; i++) {
 				data[i][0] = favList.get(i).getTitle();
 				data[i][1] = favList.get(i).getNickname();
 				data[i][2] = favList.get(i).getReviews();
+				data[i][3] = favList.get(i).getUser_id();
 			}
 			return data;
 		}

@@ -24,9 +24,9 @@ import javax.swing.event.AncestorEvent;
 public class MyInfo {
 
 	private JFrame frame;
-	private JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	public static MemberDTO dto;
+	private JTable table;
 	
 
 	/**
@@ -59,7 +59,7 @@ public class MyInfo {
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame("내 정보 보기");
 		frame.getContentPane().setBackground(SystemColor.text);
-		frame.setBounds(100, 100, 600, 400);
+		frame.setBounds(100, 100, 616, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(500,400);
 		frame.getContentPane().setLayout(null);
@@ -94,18 +94,6 @@ public class MyInfo {
 		JLabel label_1 = new JLabel("\uB0B4 \uD0C0\uC774\uD2C0");
 		label_1.setBounds(277, 57, 57, 15);
 		frame.getContentPane().add(label_1);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(277, 88, 267, 250);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 267, 250);
-		panel.add(scrollPane);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
 		
 		JLabel label_2 = new JLabel("\uB2C9\uB124\uC784");
 		label_2.setBounds(34, 147, 57, 15);
@@ -219,5 +207,12 @@ public class MyInfo {
 		rdbtndr.setBackground(Color.WHITE);
 		rdbtndr.setBounds(34, 301, 69, 23);
 		frame.getContentPane().add(rdbtndr);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(277, 102, 297, 210);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 	}
 }

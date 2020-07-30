@@ -121,6 +121,12 @@ public class JoinGUI {
 		tf_join_name.setBounds(110, 222, 142, 21);
 		frame.getContentPane().add(tf_join_name);
 		
+		tf_join_nick = new JTextField();
+		tf_join_nick.setColumns(10);
+		tf_join_nick.setBounds(110, 191, 142, 21);
+		frame.getContentPane().add(tf_join_nick);
+		
+		
 		pf_join_pw = new JPasswordField();
 		pf_join_pw.setBounds(110, 116, 142, 22);
 		frame.getContentPane().add(pf_join_pw);
@@ -218,7 +224,7 @@ public class JoinGUI {
 					}else if(cb_join_SF.isSelected()) {
 						likeGenre = "SFFANTASY";
 					}else if(cb_join_horror.isSelected()) {
-						likeGenre = "HORROTHRILLER";
+						likeGenre = "HORRORTHRILLER";
 					}else if(cb_join_animation.isSelected()) {
 						likeGenre = "ANIMATION";
 					}
@@ -260,9 +266,6 @@ public class JoinGUI {
 		label_7.setBounds(12, 186, 86, 24);
 		frame.getContentPane().add(label_7);
 		
-		tf_join_nick = new JTextField();
-		tf_join_nick.setColumns(10);
-		tf_join_nick.setBounds(110, 191, 142, 21);
-		frame.getContentPane().add(tf_join_nick);
+		
 	}
 }

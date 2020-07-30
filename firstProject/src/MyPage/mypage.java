@@ -38,15 +38,15 @@ public class mypage {
 	/**
 	 * Create the application.
 	 */
-	public mypage() {
-		initialize();
+	public mypage(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame("MY PAGE");
 		frame.setBackground(Color.WHITE);
 		frame.getContentPane().setBackground(Color.WHITE);
@@ -67,7 +67,7 @@ public class mypage {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				UserGUI ug = new UserGUI();
+				UserGUI ug = new UserGUI(dto);
 			}
 			
 		});
@@ -78,7 +78,7 @@ public class mypage {
 		JButton btn_info = new JButton("\uB0B4 \uC815\uBCF4");
 		btn_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MyInfo mi = new MyInfo();
+				MyInfo mi = new MyInfo(dto);
 			}
 		});
 		btn_info.setBackground(SystemColor.inactiveCaptionBorder);
@@ -98,7 +98,7 @@ public class mypage {
 		JButton button_1 = new JButton("\uC990\uACA8\uCC3E\uAE30");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FavoriteList FavList = new FavoriteList();
+				FavoriteList FavList = new FavoriteList(dto);
 			}
 		});
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);
@@ -109,7 +109,7 @@ public class mypage {
 		btn_del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MemberDel md = new MemberDel();
+				MemberDel md = new MemberDel(dto);
 			}
 		});
 		btn_del.setBackground(SystemColor.inactiveCaptionBorder);

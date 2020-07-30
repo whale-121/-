@@ -16,6 +16,9 @@ import javax.swing.JRadioButton;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.event.AncestorListener;
+
+import Login_model.MemberDTO;
+
 import javax.swing.event.AncestorEvent;
 
 public class MyInfo {
@@ -23,6 +26,8 @@ public class MyInfo {
 	private JFrame frame;
 	private JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	public static MemberDTO dto;
+	
 
 	/**
 	 * Launch the application.
@@ -31,7 +36,7 @@ public class MyInfo {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
 //				try {
-//					MyInfo window = new MyInfo();
+//					MyInfo window = new MyInfo(dto);
 //					window.frame.setVisible(true);
 //				} catch (Exception e) {
 //					e.printStackTrace();
@@ -43,15 +48,15 @@ public class MyInfo {
 	/**
 	 * Create the application.
 	 */
-	public MyInfo() {
-		initialize();
+	public MyInfo(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame("내 정보 보기");
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 600, 400);
@@ -110,28 +115,32 @@ public class MyInfo {
 		label_3.setBounds(34, 177, 83, 15);
 		frame.getContentPane().add(label_3);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(79, 57, 57, 15);
+		JLabel lbl_name = new JLabel("New label");
+		lbl_name.setBounds(79, 57, 57, 15);
+		lbl_name.setText(dto.getName());
 		
+		frame.getContentPane().add(lbl_name);
 		
+		JLabel lbl_age = new JLabel("New label");
+		lbl_age.setBounds(79, 87, 57, 15);
+		lbl_age.setText(""+dto.getAge());
 		
-		frame.getContentPane().add(lblNewLabel_2);
+		frame.getContentPane().add(lbl_age);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(79, 87, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lbl_sex = new JLabel("New label");
+		lbl_sex.setBounds(79, 117, 57, 15);
+		frame.getContentPane().add(lbl_sex);
+		lbl_sex.setText(dto.getSex());
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(79, 117, 57, 15);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel lbl_nick = new JLabel("New label");
+		lbl_nick.setBounds(79, 147, 57, 15);
+		frame.getContentPane().add(lbl_nick);
+		lbl_nick.setText(dto.getNickName());
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setBounds(79, 147, 57, 15);
-		frame.getContentPane().add(lblNewLabel_5);
-		
-		JLabel lbl_genre = new JLabel("New label");
+		JLabel lbl_genre = new JLabel();
 		lbl_genre.setBounds(129, 177, 114, 15);
 		frame.getContentPane().add(lbl_genre);
+		lbl_genre.setText(dto.getLikeGenre());
 		
 		JRadioButton rdbtnac = new JRadioButton("\uC561\uC158");
 		rdbtnac.addActionListener(new ActionListener() {

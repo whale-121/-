@@ -63,7 +63,7 @@ public class MemberDAO {
 				String sex = rs.getString(6);
 				String likeGenre = rs.getString(7);
 				String title = rs.getString(8);
-				dto = new MemberDTO(loginId, pw, nickName, nickName, age, sex, likeGenre, title);
+				dto = new MemberDTO(loginId, pw, nickName, name, age, sex, likeGenre, title);
 			}
 			
 		} catch (SQLException e) {
@@ -131,7 +131,7 @@ public class MemberDAO {
 				String sex = rs.getString(6);
 				String likeGenre = rs.getString(7);
 				String title = rs.getString(8);
-				memberList.add(new MemberDTO(id, pw, nickName, nickName, age, sex, likeGenre, title));
+				memberList.add(new MemberDTO(id, pw, nickName, name, age, sex, likeGenre, title));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

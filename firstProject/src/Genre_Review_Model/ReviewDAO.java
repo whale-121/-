@@ -58,7 +58,7 @@ public class ReviewDAO {
 //			psmt.setString(1,Genre);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				String reviewNumber = rs.getString(1);
+				int reviewNumber = rs.getInt(1);
 				String nickName = rs.getString(2);
 				String genre = rs.getString(3);
 				String movieName = rs.getString(4);

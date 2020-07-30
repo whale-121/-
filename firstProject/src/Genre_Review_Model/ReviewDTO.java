@@ -2,7 +2,7 @@ package Genre_Review_Model;
 
 public class ReviewDTO {
 
-	String reviewNumber;
+	int reviewNumber;
 	String nickName;
 	String genre;
 	String movieName;
@@ -11,9 +11,8 @@ public class ReviewDTO {
 	String reviewCont;
 	String reviewDate;
 
-	public ReviewDTO(String reviewNumber, String nickName, String genre, String movieName, int point, String reviewName,
+	public ReviewDTO(int reviewNumber, String nickName, String genre, String movieName, int point, String reviewName,
 			String reviewCont, String reviewDate) {
-		super();
 		this.reviewNumber = reviewNumber;
 		this.nickName = nickName;
 		this.genre = genre;
@@ -24,7 +23,7 @@ public class ReviewDTO {
 		this.reviewDate = reviewDate;
 	}
 
-	public String getReviewNumber() {
+	public int getReviewNumber() {
 		return reviewNumber;
 	}
 

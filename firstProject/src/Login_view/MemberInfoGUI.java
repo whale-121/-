@@ -62,9 +62,12 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(scrollPane);
 		
 		String[] colName = { "ID", "PW", "닉네임", "이름", "나이", "성별","좋아하는 장르","타이틀" };
+//		String[] colName = {"게시번호", "타이틀", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜"};
+		
 		MemberDAO dao = new MemberDAO();
 		TableModelChange modelCh = new TableModelChange(dao.memberInfoSelect());
 		Object[][] data = modelCh.listTypeChange();
+		
 
 		table = new JTable(data, colName);
 		scrollPane.setViewportView(table);

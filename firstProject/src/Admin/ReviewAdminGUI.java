@@ -23,6 +23,7 @@ import Genre_Review_Model.ReviewDAO;
 import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.GenreGUI;
+import java.awt.Color;
 
 public class ReviewAdminGUI {
 
@@ -60,6 +61,7 @@ public class ReviewAdminGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 884, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -87,7 +89,7 @@ public class ReviewAdminGUI {
 		scrollPane.setColumnHeaderView(btnNewButton);
 
 		JButton btn_close = new JButton("\uB2EB\uAE30");
-		btn_close.setBackground(SystemColor.inactiveCaptionBorder);
+		btn_close.setBackground(Color.WHITE);
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -98,16 +100,19 @@ public class ReviewAdminGUI {
 		frame.getContentPane().add(btn_close);
 
 		tf_search = new JTextField();
+		tf_search.setBackground(Color.WHITE);
 		tf_search.setBounds(270, 95, 342, 29);
 		frame.getContentPane().add(tf_search);
 		tf_search.setColumns(10);
 
 		cb_searchType = new JComboBox();
+		cb_searchType.setBackground(Color.WHITE);
 		cb_searchType.setModel(new DefaultComboBoxModel(new String[] {"\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784", "\uC7A5\uB974"}));
 		cb_searchType.setBounds(156, 95, 97, 29);
 		frame.getContentPane().add(cb_searchType);
 
 		JButton btn_search = new JButton("\uAC80\uC0C9");
+		btn_search.setBackground(Color.WHITE);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableSearch();
@@ -117,6 +122,7 @@ public class ReviewAdminGUI {
 		frame.getContentPane().add(btn_search);
 
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
+		btn_reset.setBackground(Color.WHITE);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableReset();
@@ -126,6 +132,7 @@ public class ReviewAdminGUI {
 		frame.getContentPane().add(btn_reset);
 		
 		JButton btn_delete = new JButton("\uC0AD\uC81C\uD558\uAE30");
+		btn_delete.setBackground(Color.WHITE);
 		btn_delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 int result = 0;
@@ -166,5 +173,4 @@ public class ReviewAdminGUI {
 		DefaultTableModel model = new DefaultTableModel(data, colName);
 		table.setModel(model);
 	}
-
 }

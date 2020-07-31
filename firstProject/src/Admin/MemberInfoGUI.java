@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class MemberInfoGUI {
 
@@ -61,6 +62,7 @@ public class MemberInfoGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 777, 712);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -84,9 +86,11 @@ public class MemberInfoGUI {
 		
 
 		table = new JTable(data, colName);
+		table.setBackground(Color.WHITE);
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("\uB2EB\uAE30");
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -97,6 +101,7 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btn_memberDel = new JButton("\uD68C\uC6D0\uC0AD\uC81C");
+		btn_memberDel.setBackground(Color.WHITE);
 		btn_memberDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -118,6 +123,7 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(btn_memberDel);
 		
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
+		btn_reset.setBackground(Color.WHITE);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableRefresh();
@@ -127,6 +133,7 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(btn_reset);
 		
 		cb_search = new JComboBox();
+		cb_search.setBackground(Color.WHITE);
 		cb_search.setModel(new DefaultComboBoxModel(new String[] {"\uC804\uCCB4\uAC80\uC0C9", "\uC544\uC774\uB514", "\uB2C9\uB124\uC784", "\uC774\uB984", "\uC131\uBCC4", "\uC88B\uC544\uD558\uB294\uC7A5\uB974"}));
 		cb_search.setBounds(174, 83, 97, 29);
 		frame.getContentPane().add(cb_search);
@@ -137,6 +144,7 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(tf_search);
 		
 		JButton btn_search = new JButton("\uAC80\uC0C9");
+		btn_search.setBackground(Color.WHITE);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableSearch();

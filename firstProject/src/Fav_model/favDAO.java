@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Genre_Review_Model.ReviewDTO;
+import Login_model.MemberDTO;
 
 public class favDAO {
 
@@ -45,6 +46,23 @@ public class favDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}public int favorAdd(String nickName, MemberDTO mdto) {
+		int cnt = 0;
+		getConn();
+		String sql = "insert into favorite values ('title', ?, (select count(*) from reviews where mem_nn = ? ), ? )";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			psmt.setString(2, nickName);
+			psmt.setString(3, mdto.getId());
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
 	}
 
 	public ArrayList<favDTO> select() {
@@ -112,6 +130,7 @@ public class favDAO {
 		return cnt;
 	}
 	
+<<<<<<< HEAD
 	public int favListDel(String nickName) {
 		int cnt = 0;
 		getConn();
@@ -127,5 +146,7 @@ public class favDAO {
 		}
 		return cnt;
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/whale-121/-.git
 	
 }

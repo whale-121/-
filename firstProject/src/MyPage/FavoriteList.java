@@ -69,11 +69,15 @@ public class FavoriteList {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int index = table.getSelectedRow();
-				TableModel model = table.getModel();
-				String f = (String) model.getValueAt(index, 1);
-				FavReview mrl = new FavReview(f, dto);
-				frame.dispose();
+				if (e.getButton() == 1) {
+					int index = table.getSelectedRow();
+					TableModel model = table.getModel();
+					String f = (String) model.getValueAt(index, 1);
+					FavReview mrl = new FavReview(f, dto);
+					frame.dispose();
+				} else if (e.getButton()==3) {
+					
+				}
 			}
 		});
 		table.setBackground(SystemColor.text);
@@ -84,7 +88,7 @@ public class FavoriteList {
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				mypage mp = new mypage(dto);
+				
 			}
 		});
 		btn_back.setBackground(SystemColor.inactiveCaptionBorder);

@@ -81,7 +81,7 @@ public class UserGUI {
 		btn_mypage.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				
 				mypage mp = new mypage(dto);
 				
 			}

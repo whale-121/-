@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 
+import Fav_model.favDAO;
 import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.MainGUI;
@@ -90,12 +91,15 @@ public class MemberDel {
          public void actionPerformed(ActionEvent e) {
             String pw = pf_delete_pw.getText();
             if (MainGUI.pf_main_pw.getText().equals(pw)) {
+            	favDAO fdao = new favDAO();
+            	fdao.favorDel(dto.getId());
                int cnt = dao.memberDelete(MainGUI.tf_main_id.getText(), MainGUI.pf_main_pw.getText());
                if (cnt == 0) {
                   JOptionPane.showMessageDialog(null, "È¸¿øÅ»Åð ½ÇÆÐ", "È¸¿øÅ»Åð", JOptionPane.ERROR_MESSAGE);
                   pf_delete_pw.setText("");
                } else {
-                  frame.dispose();
+            	  frame.dispose();
+                  
                   JOptionPane.showMessageDialog(null, "È¸¿øÅ»Åð ¼º°ø");
                   MainGUI mg = new MainGUI();
                }
@@ -113,7 +117,7 @@ public class MemberDel {
       btn_close.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
-            UserGUI ug = new UserGUI(dto);
+           
          }
       });
       btn_close.setBackground(SystemColor.inactiveCaptionBorder);

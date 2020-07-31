@@ -46,53 +46,69 @@ public class favDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<favDTO> select() {
-		
+
 		ArrayList<favDTO> favList = new ArrayList<favDTO>();
 		getConn();
 		String sql = "select * from favorite";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				String title = rs.getString(1);
 				String nickname = rs.getString(2);
 				int reviews = rs.getInt(3);
 				String user_id = rs.getString(4);
 				favList.add(new favDTO(title, nickname, reviews, user_id));
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return favList;
 	}
-	
-	   public ArrayList<favDTO> select_nn(String user_id) {
-		      
-		      ArrayList<favDTO> favList = new ArrayList<favDTO>();
-		      getConn();
-		      String sql = "select * from favorite where user_id = ?";
-		      try {
-		         psmt = conn.prepareStatement(sql);
-		         psmt.setString(1, user_id);
-		         rs = psmt.executeQuery();
-		         while(rs.next()) {
-		            String title = rs.getString(1);
-		            String nickname = rs.getString(2);
-		            int reviews = rs.getInt(3);
-		            String user_id1 = rs.getString(4);
-		            favList.add(new favDTO(title, nickname, reviews, user_id1));
-		         }
-		         
-		      } catch (SQLException e) {
-		         e.printStackTrace();
-		      }finally {
-		         close();
-		      }
-		      return favList;
-		   }
+
+	public ArrayList<favDTO> select_nn(String user_id) {
+
+		ArrayList<favDTO> favList = new ArrayList<favDTO>();
+		getConn();
+		String sql = "select * from favorite where user_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String title = rs.getString(1);
+				String nickname = rs.getString(2);
+				int reviews = rs.getInt(3);
+				String user_id1 = rs.getString(4);
+				favList.add(new favDTO(title, nickname, reviews, user_id1));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return favList;
+	}
+
+	public int favorDel(String nickName) {
+		int cnt = 0;
+		getConn();
+		String sql = "delete from favorite where user_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 }

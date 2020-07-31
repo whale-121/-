@@ -166,7 +166,7 @@ public class GenreGUI {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				UserGUI user = new UserGUI(dto);
+				
 			}
 		});
 		btn_close.setBounds(436, 194, 93, 78);

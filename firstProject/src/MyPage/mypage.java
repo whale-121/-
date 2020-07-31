@@ -68,7 +68,7 @@ public class mypage {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				UserGUI ug = new UserGUI(dto);
+				
 			}
 			
 		});
@@ -80,6 +80,7 @@ public class mypage {
 		btn_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MyInfo mi = new MyInfo(dto);
+				
 			}
 		});
 		btn_info.setBackground(SystemColor.inactiveCaptionBorder);
@@ -90,6 +91,7 @@ public class mypage {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MyReview mr = new MyReview(dto);
+				
 			}
 		});
 		button.setBackground(SystemColor.inactiveCaptionBorder);
@@ -100,6 +102,7 @@ public class mypage {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FavoriteList FavList = new FavoriteList(dto);
+				
 			}
 		});
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);
@@ -111,6 +114,7 @@ public class mypage {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				MemberDel md = new MemberDel(dto);
+				
 			}
 		});
 		btn_del.setBackground(SystemColor.inactiveCaptionBorder);

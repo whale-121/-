@@ -8,6 +8,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -68,6 +69,7 @@ public class MyInfo {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				
 			}
 		});
 		button.setBackground(SystemColor.inactiveCaptionBorder);
@@ -79,6 +81,12 @@ public class MyInfo {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton button_1 = new JButton("\uC218\uC815");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.");
+			}
+		});
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);
 		button_1.setBounds(366, 10, 97, 29);
 		frame.getContentPane().add(button_1);

@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-select * from reviews;
 
 delete reviews where review_title = 'test';
 =======
 select * from MEMBER;
 
 select * from reviews
-<<<<<<< HEAD
 
 select * from favorite;
 

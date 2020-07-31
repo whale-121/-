@@ -1,26 +1,23 @@
 package MyPage;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import java.awt.Color;
 import java.awt.SystemColor;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JRadioButton;
-import java.awt.Color;
-import javax.swing.ButtonGroup;
-import javax.swing.event.AncestorListener;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
+import Controller.TableModelChange_FA;
+import Controller.TableModelChange_TT;
 import Login_model.MemberDTO;
-
-import javax.swing.event.AncestorEvent;
+import title.titleDAO;
 
 public class MyInfo {
 
@@ -222,7 +219,11 @@ public class MyInfo {
 		scrollPane.setBounds(277, 102, 297, 210);
 		frame.getContentPane().add(scrollPane);
 		
-		table = new JTable();
+		String[] colName = {"ID", "GENRE", "TITLE"};
+		titleDAO dao = new titleDAO();
+		TableModelChange_TT modelCh = new TableModelChange_TT(dao.select_nn(dto.getId()));
+		Object[][] data = modelCh.titleList();
+		table = new JTable(data,colName);
 		scrollPane.setViewportView(table);
 	}
 }

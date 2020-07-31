@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Genre_Review_Model.ReviewDTO;
-import Login_view.GenreGUI;
+
+import WriteReview.writeReview;
+
 
 public class MemberDAO {
 	Connection conn = null;
@@ -256,5 +257,7 @@ public class MemberDAO {
 		}
 		return memberList;
 	}
+	
+	
 
 }

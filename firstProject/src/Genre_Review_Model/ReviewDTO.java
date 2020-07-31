@@ -10,6 +10,11 @@ public class ReviewDTO {
 	String reviewName;
 	String reviewCont;
 	String reviewDate;
+	
+	
+	public ReviewDTO() {
+		super();
+	}
 
 	public ReviewDTO(int reviewNumber, String nickName, String genre, String movieName, int point, String reviewName,
 			String reviewCont, String reviewDate) {

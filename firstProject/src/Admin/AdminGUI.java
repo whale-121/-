@@ -66,13 +66,19 @@ public class AdminGUI {
 		});
 		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		btnNewButton.setBounds(71, 61, 260, 57);
+		btnNewButton.setBounds(71, 66, 260, 57);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton button = new JButton("\uB9AC\uBDF0 \uAD00\uB9AC");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReviewAdminGUI reviewadmin = new ReviewAdminGUI();
+				frame.dispose();
+			}
+		});
 		button.setBackground(SystemColor.inactiveCaptionBorder);
 		button.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button.setBounds(71, 143, 260, 57);
+		button.setBounds(71, 189, 260, 57);
 		frame.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("\uB85C\uADF8\uC544\uC6C3");
@@ -86,14 +92,8 @@ public class AdminGUI {
 			}
 		});
 		button_1.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button_1.setBounds(71, 306, 260, 57);
+		button_1.setBounds(71, 312, 260, 57);
 		frame.getContentPane().add(button_1);
-		
-		JButton button_2 = new JButton("\uC601\uD654\uC815\uBCF4\uAD00\uB9AC");
-		button_2.setBackground(SystemColor.inactiveCaptionBorder);
-		button_2.setFont(new Font("±¼¸²", Font.BOLD, 18));
-		button_2.setBounds(71, 225, 260, 57);
-		frame.getContentPane().add(button_2);
 	}
 
 }

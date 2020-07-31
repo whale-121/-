@@ -1,33 +1,31 @@
-package Genre_Review;
+package Admin;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.TableModelChange;
 import Controller.TableModelChange_RV;
 import Genre_Review_Model.ReviewDAO;
 import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.GenreGUI;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+public class ReviewAdminGUI {
 
-public class Show_Reivew {
-
-	public static String genre;
 	private JFrame frame;
 	private JTable table;
 	private JTextField tf_search;
@@ -40,7 +38,7 @@ public class Show_Reivew {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Show_Reivew window = new Show_Reivew(genre);
+					ReviewAdminGUI window = new ReviewAdminGUI();
 //					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,8 +50,7 @@ public class Show_Reivew {
 	/**
 	 * Create the application.
 	 */
-	public Show_Reivew(String a) {
-		genre = a;
+	public ReviewAdminGUI() {
 		initialize();
 		frame.setVisible(true);
 	}
@@ -79,10 +76,9 @@ public class Show_Reivew {
 
 		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
 		ReviewDAO dao = new ReviewDAO();
-//		genre = "ACTION";
-		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select(genre));
+		TableModelChange_RV modelCh = new TableModelChange_RV(dao.selectAll());
 		Object[][] data = modelCh.listTypeChange_RV();
-		System.out.println(dao.select(genre).size());
+		System.out.println(dao.selectAll().size());
 
 		table = new JTable(data, colName);
 		scrollPane.setViewportView(table);
@@ -95,8 +91,7 @@ public class Show_Reivew {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MemberDTO dto = null;
-				GenreGUI gg = new GenreGUI(dto);
+				AdminGUI adGui = new AdminGUI();
 			}
 		});
 		btn_close.setBounds(653, 659, 203, 35);
@@ -108,14 +103,11 @@ public class Show_Reivew {
 		tf_search.setColumns(10);
 
 		cb_searchType = new JComboBox();
-
-		cb_searchType.setModel(new DefaultComboBoxModel(
-				new String[] { "\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784" }));
+		cb_searchType.setModel(new DefaultComboBoxModel(new String[] {"\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784", "\uC7A5\uB974"}));
 		cb_searchType.setBounds(156, 95, 97, 29);
 		frame.getContentPane().add(cb_searchType);
 
 		JButton btn_search = new JButton("\uAC80\uC0C9");
-		btn_search.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableSearch();
@@ -125,15 +117,31 @@ public class Show_Reivew {
 		frame.getContentPane().add(btn_search);
 
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
-		btn_reset.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableReset();
 			}
 		});
-		btn_reset.setBounds(52, 95, 90, 29);
+		btn_reset.setBounds(35, 95, 81, 29);
 		frame.getContentPane().add(btn_reset);
-
+		
+		JButton btn_delete = new JButton("\uC0AD\uC81C\uD558\uAE30");
+		btn_delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 int result = 0;
+		            result = JOptionPane.showConfirmDialog(null, "리뷰를 삭제하시겠습니까?", "리뷰삭제", JOptionPane.YES_OPTION,JOptionPane.NO_OPTION);
+		            if (result == 0) {
+		            	ReviewDAO dao = new ReviewDAO();
+			               int b = table.getSelectedRow();
+			               int reviewNumber = (int) table.getValueAt(b, 0);
+			               dao.reviewDelete(reviewNumber);
+		               JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+		               jTableReset();
+		            }
+			}
+		});
+		btn_delete.setBounds(12, 659, 131, 35);
+		frame.getContentPane().add(btn_delete);
 	}
 
 	public void jTableSearch() {
@@ -141,7 +149,7 @@ public class Show_Reivew {
 		ReviewDAO dao = new ReviewDAO();
 		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
 		TableModelChange_RV modelCh = new TableModelChange_RV(
-				dao.search((String) cb_searchType.getSelectedItem(), tf_search.getText()));
+				dao.searchAdmin((String) cb_searchType.getSelectedItem(), tf_search.getText()));
 		Object[][] data = modelCh.listTypeChange_RV();
 		DefaultTableModel model = new DefaultTableModel(data, colName);
 		table.setModel(model);
@@ -152,10 +160,11 @@ public class Show_Reivew {
 		ReviewDAO dao = new ReviewDAO();
 //		genre = "ACTION";
 		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
-		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select(genre));
+		TableModelChange_RV modelCh = new TableModelChange_RV(dao.selectAll());
 		Object[][] data = modelCh.listTypeChange_RV();
-		System.out.println(dao.select(genre).size());
+		System.out.println(dao.selectAll().size());
 		DefaultTableModel model = new DefaultTableModel(data, colName);
 		table.setModel(model);
 	}
+
 }

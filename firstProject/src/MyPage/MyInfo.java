@@ -221,7 +221,7 @@ public class MyInfo {
 		
 		String[] colName = {"ID", "GENRE", "TITLE"};
 		titleDAO dao = new titleDAO();
-		TableModelChange_TT modelCh = new TableModelChange_TT(dao.select_nn(dto.getId()));
+		TableModelChange_TT modelCh = new TableModelChange_TT(dao.select_id(dto.getId()));
 		Object[][] data = modelCh.titleList();
 		table = new JTable(data,colName);
 		scrollPane.setViewportView(table);

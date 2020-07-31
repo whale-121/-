@@ -3,6 +3,7 @@ package Login_view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.SystemColor;
 
 public class ReviewGUI {
 
@@ -37,6 +38,7 @@ public class ReviewGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.text);
 		frame.setBounds(100, 100, 935, 601);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

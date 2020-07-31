@@ -1,6 +1,7 @@
 package WriteReview;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -38,22 +39,23 @@ public class writeReview {
 	private JTextField tf_movieTitle;
 	JLabel lbl_date;
 	JLabel lbl_pointNumber;
+	static MemberDTO dto;
 
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					writeReview window = new writeReview();
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					writeReview window = new writeReview(dto);
 //					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -67,10 +69,11 @@ public class writeReview {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO dto) {
-		frame = new JFrame();
+		frame = new JFrame("ReviewTube - 리뷰 작성");
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.getContentPane().setLayout(null);
 		frame.setLocation(500, 400);
+		frame.setLocation(750, 200);
 
 		JLabel lbl_reviewNo = new JLabel("");
 		lbl_reviewNo.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\1.png"));
@@ -188,6 +191,7 @@ public class writeReview {
 		btn_cancle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				UserGUI ug = new UserGUI(dto);
 			}
 		});
 		btn_cancle.setBackground(SystemColor.inactiveCaptionBorder);
@@ -244,16 +248,17 @@ public class writeReview {
 //				dao.reviewSave(new ReviewDTO(reviewNumber, nickName, genre, movieName, point, reviewName, reviewCont,
 //						reviewDate));
 
-				
-					int cnt = dao.reviewSave(new ReviewDTO(reviewNumber, nickName, genre, movieName, point, reviewName, reviewCont, reviewDate));
-					if(cnt == 0) {
-						JOptionPane.showMessageDialog(null, "저장 실패!");
-					}else {
-						frame.dispose();
-						JOptionPane.showMessageDialog(null, "저장 성공!");
-						
-					}
-				
+				int cnt = dao.reviewSave(new ReviewDTO(reviewNumber, nickName, genre, movieName, point, reviewName,
+						reviewCont, reviewDate));
+				if (cnt == 0) {
+					JOptionPane.showMessageDialog(null, "저장 실패!");
+				} else {
+					frame.dispose();
+					JOptionPane.showMessageDialog(null, "저장 성공!");
+					UserGUI ug = new UserGUI(dto);
+
+				}
+
 //				
 //				JOptionPane.showMessageDialog(null, "리뷰가 저장되었습니다");
 //				frame.dispose();

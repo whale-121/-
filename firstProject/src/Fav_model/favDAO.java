@@ -130,7 +130,6 @@ public class favDAO {
 		return cnt;
 	}
 	
-<<<<<<< HEAD
 	public int favListDel(String nickName) {
 		int cnt = 0;
 		getConn();
@@ -146,7 +145,5 @@ public class favDAO {
 		}
 		return cnt;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/whale-121/-.git
 	
 }

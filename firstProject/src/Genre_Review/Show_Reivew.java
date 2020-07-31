@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Show_Reivew {
 
@@ -67,16 +68,18 @@ public class Show_Reivew {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO dto) {
-		frame = new JFrame();
+		frame = new JFrame("ReviewTube - ¿µÈ­ ¸®ºä");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 884, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocation(750,200);
 
-		JLabel lblNewLabel = new JLabel("\uC601\uD654 \uB9AC\uBDF0");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\\uBB34\uC81C (6).png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		lblNewLabel.setBounds(12, 10, 844, 41);
+		lblNewLabel.setBounds(12, 10, 844, 75);
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane(table);
@@ -105,7 +108,7 @@ public class Show_Reivew {
 				GenreGUI gg = new GenreGUI(dto);
 			}
 		});
-		btn_close.setBounds(653, 659, 203, 35);
+		btn_close.setBounds(759, 659, 97, 35);
 		frame.getContentPane().add(btn_close);
 
 		tf_search = new JTextField();
@@ -156,6 +159,11 @@ public class Show_Reivew {
 		btn_showRv.setBackground(Color.WHITE);
 		btn_showRv.setBounds(12, 659, 162, 35);
 		frame.getContentPane().add(btn_showRv);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT056\\Desktop\\black.png"));
+		lblNewLabel_1.setBounds(0, 0, 868, 704);
+		frame.getContentPane().add(lblNewLabel_1);
 
 	}
 

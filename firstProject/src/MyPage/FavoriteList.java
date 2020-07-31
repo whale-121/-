@@ -82,7 +82,6 @@ public class FavoriteList {
 			@Override
 			
 			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
 				
 				// e.getButton()==1
 				if (e.getClickCount() == 2) {
@@ -105,31 +104,12 @@ public class FavoriteList {
 						jTableRefresh();
 
 					}
-
-=======
-				if (e.getButton() == 1) {
-					int index = table.getSelectedRow();
-					TableModel model = table.getModel();
-					String f = (String) model.getValueAt(index, 1);
-					FavReview mrl = new FavReview(f, dto);
-					frame.dispose();
-				} else if (e.getButton()==3) {
-					int result = JOptionPane.showConfirmDialog(null, "삭제하시겠습니까?", "삭제", 0);
-					if (result == 0) {
-						 int row = table.getSelectedRow();
-					}
->>>>>>> branch 'master' of https://github.com/whale-121/-.git
 				}
 			}
 		});
 		table.setBackground(SystemColor.text);
 		scrollPane.setViewportView(table);
-<<<<<<< HEAD
-//		RemoveAction rmaction = new RemoveAction(table);
 
-=======
-		
->>>>>>> branch 'master' of https://github.com/whale-121/-.git
 		JButton btn_back = new JButton("\uB2EB\uAE30");
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -140,16 +120,7 @@ public class FavoriteList {
 		btn_back.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_back.setBounds(494, 10, 97, 29);
 		frame.getContentPane().add(btn_back);
-<<<<<<< HEAD
 
-//        btn_Del.addActionListener( new ActionListener(){
-//        	public void actionPerformed(ActionEvent e) {
-//        		rmaction.actionPerformed(e);            
-//        	}
-=======
-        
-        	
->>>>>>> branch 'master' of https://github.com/whale-121/-.git
 	}
 
 	public void jTableRefresh() {

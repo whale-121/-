@@ -67,7 +67,7 @@ public class FavoriteList {
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				mypage mp = new mypage(dto);
+				
 			}
 		});
 		btn_back.setBackground(SystemColor.inactiveCaptionBorder);

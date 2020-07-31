@@ -67,7 +67,7 @@ public class mypage {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				UserGUI ug = new UserGUI(dto);
+				
 			}
 			
 		});
@@ -108,7 +108,7 @@ public class mypage {
 		JButton btn_del = new JButton("\uD68C\uC6D0 \uD0C8\uD1F4");
 		btn_del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				
 				MemberDel md = new MemberDel(dto);
 			}
 		});

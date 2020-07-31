@@ -251,7 +251,7 @@ public class writeReview {
 					}else {
 						frame.dispose();
 						JOptionPane.showMessageDialog(null, "저장 성공!");
-						UserGUI ug = new UserGUI(dto);
+						
 					}
 				
 //				

@@ -113,7 +113,7 @@ public class MemberDel {
       btn_close.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             frame.dispose();
-            UserGUI ug = new UserGUI(dto);
+            
          }
       });
       btn_close.setBackground(SystemColor.inactiveCaptionBorder);

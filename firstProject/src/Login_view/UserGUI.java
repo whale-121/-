@@ -70,7 +70,7 @@ public class UserGUI {
 		btn_write.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_write.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+			
 				writeReview wr = new writeReview(dto);
 			}
 		});
@@ -82,7 +82,7 @@ public class UserGUI {
 		btn_mypage.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				
 				mypage mp = new mypage(dto);
 				
 			}

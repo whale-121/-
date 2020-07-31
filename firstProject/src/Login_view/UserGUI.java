@@ -70,6 +70,7 @@ public class UserGUI {
 		btn_write.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_write.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				writeReview wr = new writeReview(dto);
 			}
 		});

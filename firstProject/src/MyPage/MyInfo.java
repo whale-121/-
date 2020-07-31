@@ -83,8 +83,10 @@ public class MyInfo {
 		JButton button_1 = new JButton("\uC218\uC815");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				
 				JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.");
+
 			}
 		});
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);

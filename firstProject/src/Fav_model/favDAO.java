@@ -111,4 +111,21 @@ public class favDAO {
 		}
 		return cnt;
 	}
+	
+	public int favListDel(String nickName) {
+		int cnt = 0;
+		getConn();
+		String sql = "delete from favorite where nickname = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
 }

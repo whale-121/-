@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import WriteReview.writeReview;
+
 public class MemberDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -155,6 +157,4 @@ public class MemberDAO {
 		
 		return memberList;
 	}
-	
-
 }

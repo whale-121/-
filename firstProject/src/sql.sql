@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+select * from reviews;
+
+delete reviews where review_title = 'test';
+=======
 select * from MEMBER;
 
 select * from reviews
+<<<<<<< HEAD
 
 select * from favorite;
 
@@ -14,3 +20,7 @@ insert into favorite values (null, '±×Àú ºû', (select count(*) from reviews wher
 
 insert into favorite values (null, '±×Àú ºû', (select count(*) from reviews where mem_nn='±×Àú ºû'), 'pcccy');
 
+=======
+select * from reviews where MEM_NN = '¾ÓÆÎ' order by review_no asc
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master

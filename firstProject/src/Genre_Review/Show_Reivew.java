@@ -27,6 +27,7 @@ import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class Show_Reivew {
 
@@ -44,8 +45,8 @@ public class Show_Reivew {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					Show_Reivew window = new Show_Reivew(genre);
-//					window.frame.setVisible(true);
+					Show_Reivew window = new Show_Reivew(null, null);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,6 +68,7 @@ public class Show_Reivew {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 884, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -95,7 +97,7 @@ public class Show_Reivew {
 		scrollPane.setColumnHeaderView(btnNewButton);
 
 		JButton btn_close = new JButton("\uB2EB\uAE30");
-		btn_close.setBackground(SystemColor.inactiveCaptionBorder);
+		btn_close.setBackground(Color.WHITE);
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -107,17 +109,20 @@ public class Show_Reivew {
 		frame.getContentPane().add(btn_close);
 
 		tf_search = new JTextField();
+		tf_search.setBackground(Color.WHITE);
 		tf_search.setBounds(270, 95, 342, 29);
 		frame.getContentPane().add(tf_search);
 		tf_search.setColumns(10);
 
 		cb_searchType = new JComboBox();
+		cb_searchType.setBackground(Color.WHITE);
 		cb_searchType.setModel(new DefaultComboBoxModel(
 				new String[] { "\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784" }));
 		cb_searchType.setBounds(156, 95, 97, 29);
 		frame.getContentPane().add(cb_searchType);
 
 		JButton btn_search = new JButton("\uAC80\uC0C9");
+		btn_search.setBackground(Color.WHITE);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableSearch();
@@ -127,6 +132,7 @@ public class Show_Reivew {
 		frame.getContentPane().add(btn_search);
 
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
+		btn_reset.setBackground(Color.WHITE);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableReset();
@@ -147,7 +153,7 @@ public class Show_Reivew {
 	               dao.detailRv(reviewNumber);
 			}
 		});
-		btn_showRv.setBackground(SystemColor.inactiveCaptionBorder);
+		btn_showRv.setBackground(Color.WHITE);
 		btn_showRv.setBounds(12, 659, 162, 35);
 		frame.getContentPane().add(btn_showRv);
 

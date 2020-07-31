@@ -18,9 +18,11 @@ insert into favorite values (null, 'Àü¾²', (select count(*) from reviews where m
 insert into favorite values (null, 'pccccy', (select count(*) from reviews where mem_nn='pccccy'), 'crong');
 insert into favorite values (null, '±×Àú ºû', (select count(*) from reviews where mem_nn='±×Àú ºû'), 'crong');
 
-insert into favorite values (null, '±×Àú ºû', (select count(*) from reviews where mem_nn='±×Àú ºû'), 'pcccy');
+insert into favorite values (null, '±×Àú ºû', (select count(*) from reviews where mem_nn='±×Àú ºû'), 'duddnr');
 
 =======
 select * from reviews where MEM_NN = '¾ÓÆÎ' order by review_no asc
 >>>>>>> refs/remotes/origin/master
 >>>>>>> refs/remotes/origin/master
+
+insert into favorite values (null, '¾ÓÆÎ',(select count(*) from reviews where nickname = '¾ÓÆÎ'), 'duddnr');

@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class DetailReviewGUI {
 
@@ -60,7 +61,7 @@ public class DetailReviewGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\uB2C9\uB124\uC784 :");
+		JLabel lblNewLabel = new JLabel("\uB2C9 \uB124 \uC784 :");
 		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(12, 76, 99, 18);
@@ -80,13 +81,13 @@ public class DetailReviewGUI {
 		label_1.setBounds(12, 104, 99, 18);
 		frame.getContentPane().add(label_1);
 		
-		JLabel label_2 = new JLabel("\uC7A5\uB974 :");
+		JLabel label_2 = new JLabel("\uC7A5 \uB974 :");
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		label_2.setBounds(12, 132, 99, 18);
 		frame.getContentPane().add(label_2);
 		
-		JLabel label_3 = new JLabel("\uAE00\uC81C\uBAA9 :");
+		JLabel label_3 = new JLabel("\uAE00 \uC81C \uBAA9 :");
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		label_3.setBounds(350, 76, 99, 18);
@@ -172,5 +173,24 @@ public class DetailReviewGUI {
 		panel_4.setBackground(Color.WHITE);
 		panel_4.setBounds(442, 14, 126, 20);
 		panel.add(panel_4);
+		
+		JLabel label = new JLabel("\uD3C9 \uC810 :");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		label.setBounds(336, 73, 99, 18);
+		panel.add(label);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(Color.WHITE);
+		panel_5.setBounds(442, 71, 126, 20);
+		panel.add(panel_5);
+		panel_5.setLayout(null);
+		
+		JLabel lbl_point = new JLabel("");
+		lbl_point.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_point.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lbl_point.setBounds(0, 0, 129, 18);
+		lbl_point.setText(""+rdto.getPoint());
+		panel_5.add(lbl_point);
 	}
 }

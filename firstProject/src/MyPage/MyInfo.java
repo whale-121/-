@@ -79,6 +79,10 @@ public class MyInfo {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton button_1 = new JButton("\uC218\uC815");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);
 		button_1.setBounds(366, 10, 97, 29);
 		frame.getContentPane().add(button_1);

@@ -23,9 +23,8 @@ import javax.swing.event.ChangeListener;
 
 import Genre_Review_Model.ReviewDAO;
 import Genre_Review_Model.ReviewDTO;
-import Login_model.MemberDAO;
 import Login_model.MemberDTO;
-import Login_view.MainGUI;
+import Login_view.UserGUI;
 
 public class writeReview {
 
@@ -252,6 +251,7 @@ public class writeReview {
 					}else {
 						frame.dispose();
 						JOptionPane.showMessageDialog(null, "저장 성공!");
+						UserGUI ug = new UserGUI(dto);
 					}
 				
 //				

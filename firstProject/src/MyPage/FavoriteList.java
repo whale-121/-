@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
@@ -76,13 +77,15 @@ public class FavoriteList {
 					FavReview mrl = new FavReview(f, dto);
 					frame.dispose();
 				} else if (e.getButton()==3) {
-					
+					int result = JOptionPane.showConfirmDialog(null, "삭제하시겠습니까?", "삭제", 0);
+					if (result == 0) {
+						 int row = table.getSelectedRow();
+					}
 				}
 			}
 		});
 		table.setBackground(SystemColor.text);
 		scrollPane.setViewportView(table);
-//		RemoveAction rmaction = new RemoveAction(table);
 		
 		JButton btn_back = new JButton("\uB2EB\uAE30");
 		btn_back.addActionListener(new ActionListener() {
@@ -95,10 +98,6 @@ public class FavoriteList {
 		btn_back.setBounds(494, 10, 97, 29);
 		frame.getContentPane().add(btn_back);
         
-//        btn_Del.addActionListener( new ActionListener(){
-//        	public void actionPerformed(ActionEvent e) {
-//        		rmaction.actionPerformed(e);            
-//        	}
         	
 	}
 }

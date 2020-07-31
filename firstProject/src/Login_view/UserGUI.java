@@ -65,7 +65,7 @@ public class UserGUI {
 		btn_view.setBackground(Color.WHITE);
 		btn_view.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				
 				GenreGUI genre = new GenreGUI(dto);
 			}
 		});
@@ -77,7 +77,6 @@ public class UserGUI {
 		btn_write.setBackground(Color.WHITE);
 		btn_write.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				writeReview wr = new writeReview(dto);
 			}
 		});
@@ -123,7 +122,6 @@ public class UserGUI {
 		JButton btn_searchMovie = new JButton("\uC601\uD654 \uCC3E\uAE30");
 		btn_searchMovie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				searchMovie sm = new searchMovie();
 			}
 		});

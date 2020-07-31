@@ -57,10 +57,11 @@ public class titleDAO {
 			psmt.setString(1, mem_id);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				String men_id = rs.getString(1);
-				String genre = rs.getString(2);
+				String genre = rs.getString(1);
+				String condition = rs.getString(2);
 				String title = rs.getString(3);
-				titleList.add(new titleDTO(men_id, genre, title));
+				String men_id = rs.getString(4);
+				titleList.add(new titleDTO(genre, condition, title ,men_id));
 			}
 
 		} catch (SQLException e) {

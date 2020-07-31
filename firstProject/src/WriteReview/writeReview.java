@@ -72,7 +72,7 @@ public class writeReview {
 		frame = new JFrame("ReviewTube - ∏Æ∫‰ ¿€º∫");
 		frame.getContentPane().setBackground(SystemColor.text);
 		frame.getContentPane().setLayout(null);
-		frame.setLocation(500, 400);
+		frame.setBounds(100, 100, 800, 545);
 		frame.setLocation(750, 200);
 
 		JLabel lbl_reviewNo = new JLabel("");
@@ -147,7 +147,6 @@ public class writeReview {
 		lbl_pointNumber.setBounds(332, 239, 57, 23);
 		frame.getContentPane().add(lbl_pointNumber);
 		frame.setBackground(SystemColor.text);
-		frame.setBounds(100, 100, 420, 677);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JSlider slider = new JSlider();
@@ -179,11 +178,11 @@ public class writeReview {
 		lblContents.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\2.png"));
 		lblContents.setHorizontalAlignment(SwingConstants.LEFT);
 		lblContents.setFont(new Font("±º∏≤", Font.BOLD, 14));
-		lblContents.setBounds(12, 282, 107, 31);
+		lblContents.setBounds(399, 10, 107, 31);
 		frame.getContentPane().add(lblContents);
 
 		tf_cont = new JTextField();
-		tf_cont.setBounds(12, 323, 379, 275);
+		tf_cont.setBounds(399, 50, 373, 433);
 		frame.getContentPane().add(tf_cont);
 		tf_cont.setColumns(10);
 
@@ -195,7 +194,7 @@ public class writeReview {
 			}
 		});
 		btn_cancle.setBackground(SystemColor.inactiveCaptionBorder);
-		btn_cancle.setBounds(294, 608, 97, 23);
+		btn_cancle.setBounds(148, 460, 97, 23);
 		frame.getContentPane().add(btn_cancle);
 
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -267,7 +266,7 @@ public class writeReview {
 
 		});
 		btn_save.setBackground(SystemColor.inactiveCaptionBorder);
-		btn_save.setBounds(187, 608, 97, 23);
+		btn_save.setBounds(22, 460, 97, 23);
 		frame.getContentPane().add(btn_save);
 
 		lbl_name = new JLabel("New label");
@@ -283,6 +282,10 @@ public class writeReview {
 		tf_movieTitle.setColumns(10);
 		tf_movieTitle.setBounds(87, 164, 302, 21);
 		frame.getContentPane().add(tf_movieTitle);
+		
+		JLabel background = new JLabel("");
+		background.setBounds(0, 0, 784, 506);
+		frame.getContentPane().add(background);
 
 	}
 }

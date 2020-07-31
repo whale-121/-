@@ -24,6 +24,7 @@ import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.GenreGUI;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ReviewAdminGUI {
 
@@ -62,18 +63,20 @@ public class ReviewAdminGUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 884, 743);
+		frame.setBounds(100, 100,800,545);
+		frame.setLocation(750,200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("\uC601\uD654 \uB9AC\uBDF0");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\\uBB34\uC81C (10).png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel.setBounds(12, 10, 844, 41);
+		lblNewLabel.setBounds(12, 10, 761, 75);
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(12, 134, 844, 515);
+		scrollPane.setBounds(12, 134, 761, 316);
 		frame.getContentPane().add(scrollPane);
 
 		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
@@ -92,23 +95,23 @@ public class ReviewAdminGUI {
 		btn_close.setBackground(Color.WHITE);
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				AdminGUI adGui = new AdminGUI();
+				frame.setLocation(-800,0);
 			}
 		});
-		btn_close.setBounds(653, 659, 203, 35);
+		btn_close.setBounds(642, 460, 131, 35);
 		frame.getContentPane().add(btn_close);
 
 		tf_search = new JTextField();
 		tf_search.setBackground(Color.WHITE);
-		tf_search.setBounds(270, 95, 342, 29);
+		tf_search.setBounds(240, 95, 424, 29);
 		frame.getContentPane().add(tf_search);
 		tf_search.setColumns(10);
 
 		cb_searchType = new JComboBox();
 		cb_searchType.setBackground(Color.WHITE);
 		cb_searchType.setModel(new DefaultComboBoxModel(new String[] {"\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784", "\uC7A5\uB974"}));
-		cb_searchType.setBounds(156, 95, 97, 29);
+		cb_searchType.setBounds(121, 95, 107, 29);
 		frame.getContentPane().add(cb_searchType);
 
 		JButton btn_search = new JButton("\uAC80\uC0C9");
@@ -118,7 +121,7 @@ public class ReviewAdminGUI {
 				jTableSearch();
 			}
 		});
-		btn_search.setBounds(624, 95, 68, 29);
+		btn_search.setBounds(676, 95, 97, 29);
 		frame.getContentPane().add(btn_search);
 
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
@@ -128,7 +131,7 @@ public class ReviewAdminGUI {
 				jTableReset();
 			}
 		});
-		btn_reset.setBounds(35, 95, 81, 29);
+		btn_reset.setBounds(12, 95, 97, 29);
 		frame.getContentPane().add(btn_reset);
 		
 		JButton btn_delete = new JButton("\uC0AD\uC81C\uD558\uAE30");
@@ -147,8 +150,13 @@ public class ReviewAdminGUI {
 		            }
 			}
 		});
-		btn_delete.setBounds(12, 659, 131, 35);
+		btn_delete.setBounds(12, 460, 131, 35);
 		frame.getContentPane().add(btn_delete);
+		
+		JLabel background = new JLabel("New label");
+		background.setIcon(new ImageIcon("C:\\Users\\SMT056\\Desktop\\black.png"));
+		background.setBounds(0, 0, 784, 506);
+		frame.getContentPane().add(background);
 	}
 
 	public void jTableSearch() {

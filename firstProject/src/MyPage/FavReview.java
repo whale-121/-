@@ -60,7 +60,6 @@ public class FavReview {
 		btn_back.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				FavoriteList fl = new FavoriteList(dto);
 			}
 		});

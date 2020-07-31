@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class searchMovie {
 	
@@ -72,33 +74,37 @@ public class searchMovie {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 490, 167);
+		frame.setBounds(100, 100, 385, 545);
+		frame.setLocation(750,200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btn_back = new JButton("\uC774\uC804\uC73C\uB85C");
-		btn_back.setBackground(SystemColor.inactiveCaptionBorder);
+		btn_back.setFont(new Font("HY헤드라인M", Font.PLAIN, 12));
+		btn_back.setBackground(Color.WHITE);
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				frame.setLocation(-800,0);
 				UserGUI ug = new UserGUI(dto);
 			}
 		});
 		btn_back.setBounds(12, 10, 96, 23);
 		frame.getContentPane().add(btn_back);
 		
-		JLabel lblNewLabel = new JLabel(">> \uC601\uD654 \uC81C\uBAA9\uC744 \uC785\uB825\uD574 \uC8FC\uC138\uC694 <<");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\\uBB34\uC81C (11).png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("맑은 고딕 Semilight", Font.PLAIN, 14));
-		lblNewLabel.setBounds(72, 43, 350, 23);
+		lblNewLabel.setBounds(12, 148, 350, 65);
 		frame.getContentPane().add(lblNewLabel);
 		
 		tf_search = new JTextField();
-		tf_search.setBounds(72, 76, 272, 30);
+		tf_search.setBounds(57, 223, 272, 30);
 		frame.getContentPane().add(tf_search);
 		tf_search.setColumns(10);
 		
 		JButton btnNewButton = new JButton("\uAC80\uC0C9");
+		btnNewButton.setFont(new Font("HY헤드라인M", Font.PLAIN, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("클릭 성공");
@@ -106,7 +112,12 @@ public class searchMovie {
 			}
 		});
 		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
-		btnNewButton.setBounds(356, 75, 66, 30);
+		btnNewButton.setBounds(157, 263, 66, 30);
 		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT056\\Desktop\\black.png"));
+		lblNewLabel_1.setBounds(0, 0, 369, 506);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 }

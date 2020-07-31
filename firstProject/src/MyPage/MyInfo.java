@@ -219,10 +219,15 @@ public class MyInfo {
 		scrollPane.setBounds(277, 102, 297, 210);
 		frame.getContentPane().add(scrollPane);
 		
-		String[] colName = {"ID", "GENRE", "TITLE"};
+		String[] colName = {"장르", "달성 조건", "타이틀"};
 		titleDAO dao = new titleDAO();
 		TableModelChange_TT modelCh = new TableModelChange_TT(dao.select_id(dto.getId()));
 		Object[][] data = modelCh.titleList();
+		for (int i = 0; i < data.length; i++) {
+			System.out.print(data[i][0]);
+			System.out.print(data[i][1]);
+			System.out.print(data[i][2]);
+		}
 		table = new JTable(data,colName);
 		scrollPane.setViewportView(table);
 	}

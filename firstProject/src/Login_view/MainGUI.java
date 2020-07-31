@@ -73,9 +73,9 @@ public class MainGUI {
       frame = new JFrame("ReviewTube - LOG IN");
       frame.setBackground(SystemColor.text);
       frame.getContentPane().setBackground(SystemColor.text);
-      frame.setBounds(100, 100, 385, 545);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
+      frame.setBounds(100, 100, 385, 545);
       frame.setLocation(750,200);
 
       panel = new JPanel();
@@ -165,7 +165,7 @@ public class MainGUI {
       
       lblNewLabel_1 = new JLabel("New label");
       lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT056\\Desktop\\black.png"));
-      lblNewLabel_1.setBounds(0, 0, 601, 506);
+      lblNewLabel_1.setBounds(0, 0, 369, 506);
       panel.add(lblNewLabel_1);
    }
 

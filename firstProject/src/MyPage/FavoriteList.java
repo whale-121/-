@@ -90,7 +90,6 @@ public class FavoriteList {
 						TableModel model = table.getModel();
 						String f = (String) model.getValueAt(index, 1);
 						FavReview mrl = new FavReview(f, dto);
-						frame.dispose();
 				} else if (e.getButton() == 3) {
 					int result = JOptionPane.showConfirmDialog(null, "삭제하시겠습니까?", "삭제", 0);
 					if (result == 0) {
@@ -113,8 +112,6 @@ public class FavoriteList {
 		JButton btn_back = new JButton("\uB2EB\uAE30");
 		btn_back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
-
 			}
 		});
 		btn_back.setBackground(SystemColor.inactiveCaptionBorder);

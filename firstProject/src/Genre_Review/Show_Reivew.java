@@ -70,20 +70,20 @@ public class Show_Reivew {
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame("ReviewTube - 영화 리뷰");
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 884, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setBounds(100, 100,800, 545);
 		frame.setLocation(750,200);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT056\\Downloads\\\uBB34\uC81C (6).png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel.setBounds(12, 10, 844, 75);
+		lblNewLabel.setBounds(12, 10, 750, 75);
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(12, 134, 844, 515);
+		scrollPane.setBounds(12, 134, 760, 311);
 		frame.getContentPane().add(scrollPane);
 
 		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
@@ -103,12 +103,11 @@ public class Show_Reivew {
 		btn_close.setBackground(Color.WHITE);
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				MemberDTO dto = null;
 				GenreGUI gg = new GenreGUI(dto);
+				frame.setLocation(-800,0);
 			}
 		});
-		btn_close.setBounds(759, 659, 97, 35);
+		btn_close.setBounds(675, 455, 97, 35);
 		frame.getContentPane().add(btn_close);
 
 		tf_search = new JTextField();
@@ -141,7 +140,7 @@ public class Show_Reivew {
 				jTableReset();
 			}
 		});
-		btn_reset.setBounds(52, 95, 90, 29);
+		btn_reset.setBounds(54, 95, 90, 29);
 		frame.getContentPane().add(btn_reset);
 		
 		JButton btn_showRv = new JButton("\uB9AC\uBDF0 \uB0B4\uC6A9 \uBCF4\uAE30");
@@ -157,12 +156,12 @@ public class Show_Reivew {
 			}
 		});
 		btn_showRv.setBackground(Color.WHITE);
-		btn_showRv.setBounds(12, 659, 162, 35);
+		btn_showRv.setBounds(12, 455, 162, 35);
 		frame.getContentPane().add(btn_showRv);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT056\\Desktop\\black.png"));
-		lblNewLabel_1.setBounds(0, 0, 868, 704);
+		lblNewLabel_1.setBounds(0, 0, 784, 506);
 		frame.getContentPane().add(lblNewLabel_1);
 
 	}

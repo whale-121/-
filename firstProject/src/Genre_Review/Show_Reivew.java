@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import Controller.TableModelChange;
 import Controller.TableModelChange_RV;
 import Genre_Review_Model.ReviewDAO;
+import Genre_Review_Model.ReviewDTO;
 import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.GenreGUI;
@@ -32,6 +35,7 @@ public class Show_Reivew {
 	private JTable table;
 	private JTextField tf_search;
 	JComboBox cb_searchType;
+	public static String nickName;
 
 	/**
 	 * Launch the application.
@@ -40,7 +44,7 @@ public class Show_Reivew {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Show_Reivew window = new Show_Reivew(genre);
+//					Show_Reivew window = new Show_Reivew(genre);
 //					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,16 +56,16 @@ public class Show_Reivew {
 	/**
 	 * Create the application.
 	 */
-	public Show_Reivew(String a) {
+	public Show_Reivew(String a,MemberDTO dto) {
 		genre = a;
-		initialize();
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 884, 743);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,14 +112,12 @@ public class Show_Reivew {
 		tf_search.setColumns(10);
 
 		cb_searchType = new JComboBox();
-
 		cb_searchType.setModel(new DefaultComboBoxModel(
 				new String[] { "\uC804\uCCB4\uAC80\uC0C9", "\uC601\uD654\uC81C\uBAA9", "\uB2C9\uB124\uC784" }));
 		cb_searchType.setBounds(156, 95, 97, 29);
 		frame.getContentPane().add(cb_searchType);
 
 		JButton btn_search = new JButton("\uAC80\uC0C9");
-		btn_search.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableSearch();
@@ -125,7 +127,6 @@ public class Show_Reivew {
 		frame.getContentPane().add(btn_search);
 
 		JButton btn_reset = new JButton("\uCD08\uAE30\uD654");
-		btn_reset.setBackground(SystemColor.inactiveCaptionBorder);
 		btn_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jTableReset();
@@ -133,6 +134,22 @@ public class Show_Reivew {
 		});
 		btn_reset.setBounds(52, 95, 90, 29);
 		frame.getContentPane().add(btn_reset);
+		
+		JButton btn_showRv = new JButton("\uB9AC\uBDF0 \uB0B4\uC6A9 \uBCF4\uAE30");
+		btn_showRv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReviewDAO dao = new ReviewDAO();
+	               int b = table.getSelectedRow();
+	               int reviewNumber = (int) table.getValueAt(b, 0);
+	               nickName = (String) table.getValueAt(b, 1);
+	               ReviewDTO rdto = dao.detailRv(reviewNumber);
+	               DetailReviewGUI dtRv = new DetailReviewGUI(rdto,dto);
+	               dao.detailRv(reviewNumber);
+			}
+		});
+		btn_showRv.setBackground(SystemColor.inactiveCaptionBorder);
+		btn_showRv.setBounds(12, 659, 162, 35);
+		frame.getContentPane().add(btn_showRv);
 
 	}
 

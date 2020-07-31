@@ -319,6 +319,34 @@ public class ReviewDAO {
 		return cnt;
 
 	}
+	public ReviewDTO detailRv(int reviewNo) {
+		getConn();
+		String sql = "select * from reviews where review_no = ?";
+		ReviewDTO dto = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, reviewNo);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int reviewNumber = rs.getInt(1);
+				String nickName = rs.getString(2);
+				String genre = rs.getString(3);
+				String movieName = rs.getString(4);
+				int point = rs.getInt(5);
+				String reviewName = rs.getString(6);
+				String reviewCont = rs.getString(7);
+				String reviewDate = rs.getString(8);
+				dto = new ReviewDTO(reviewNumber, nickName, genre, movieName, point, reviewName, reviewCont,
+						reviewDate);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
 	
 
 }

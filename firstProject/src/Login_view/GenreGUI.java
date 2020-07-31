@@ -70,7 +70,7 @@ public class GenreGUI {
 		btn_action.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("ACTION");
+				Show_Reivew AR = new Show_Reivew("ACTION",dto);
 				genre = "ACTION";
 //				Action_Review AR = new Action_Review();
 				
@@ -85,7 +85,7 @@ public class GenreGUI {
 		btn_comedy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("COMEDY");
+				Show_Reivew AR = new Show_Reivew("COMEDY",dto);
 				genre = "COMEDY";
 //				AR.setGenre("comedy");
 			}
@@ -99,7 +99,7 @@ public class GenreGUI {
 		btn_drama.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("DRAMA");
+				Show_Reivew AR = new Show_Reivew("DRAMA",dto);
 				genre = "DRAMA";
 			}
 		});
@@ -112,7 +112,7 @@ public class GenreGUI {
 		btn_romance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("ROMANCE");
+				Show_Reivew AR = new Show_Reivew("ROMANCE",dto);
 				genre = "ROMANCE";
 			}
 		});
@@ -125,7 +125,7 @@ public class GenreGUI {
 		btn_hrror.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("HORRORTHRILLER");
+				Show_Reivew AR = new Show_Reivew("HORRORTHRILLER",dto);
 				genre = "HORRORTHRILLER";
 			}
 		});
@@ -138,7 +138,7 @@ public class GenreGUI {
 		btn_SF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("SFFANTASY");
+				Show_Reivew AR = new Show_Reivew("SFFANTASY",dto);
 				genre = "SFFANTASY";
 			}
 		});
@@ -151,7 +151,7 @@ public class GenreGUI {
 		btn_ani.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Show_Reivew AR = new Show_Reivew("ANIMATION");
+				Show_Reivew AR = new Show_Reivew("ANIMATION",dto);
 				genre = "ANIMATION";
 			}
 		});

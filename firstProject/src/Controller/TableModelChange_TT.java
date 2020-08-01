@@ -15,8 +15,8 @@ public class TableModelChange_TT {
 	public Object[][] titleList() {
 		Object[][] data = new Object[titleList.size()][3];
 		for (int i = 0; i < data.length; i++) {
-			data[i][0] = titleList.get(i).getCondition();
-			data[i][1] = titleList.get(i).getGenre();
+			data[i][0] = titleList.get(i).getGenre();
+			data[i][1] = titleList.get(i).getCondition();
 			data[i][2] = titleList.get(i).getTitle();
 		}
 		return data;

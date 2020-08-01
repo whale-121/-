@@ -86,7 +86,7 @@ public class Show_Reivew {
 		scrollPane.setBounds(12, 134, 760, 311);
 		frame.getContentPane().add(scrollPane);
 
-		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
+		String[] colName = { "게시번호", "닉네임","타이틀", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
 		ReviewDAO dao = new ReviewDAO();
 //		genre = "ACTION";
 		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select(genre));
@@ -169,7 +169,7 @@ public class Show_Reivew {
 	public void jTableSearch() {
 
 		ReviewDAO dao = new ReviewDAO();
-		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
+		String[] colName = { "게시번호", "닉네임", "타이틀", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
 		TableModelChange_RV modelCh = new TableModelChange_RV(
 				dao.search((String) cb_searchType.getSelectedItem(), tf_search.getText()));
 		Object[][] data = modelCh.listTypeChange_RV();
@@ -181,7 +181,7 @@ public class Show_Reivew {
 
 		ReviewDAO dao = new ReviewDAO();
 //		genre = "ACTION";
-		String[] colName = { "게시번호", "닉네임", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
+		String[] colName = { "게시번호", "닉네임", "타이틀", "장르", "영화제목", "평점", "제목", "리뷰 내용", "날짜" };
 		TableModelChange_RV modelCh = new TableModelChange_RV(dao.select(genre));
 		Object[][] data = modelCh.listTypeChange_RV();
 		System.out.println(dao.select(genre).size());

@@ -12,6 +12,8 @@ import javax.swing.SwingConstants;
 import Login_model.MemberDAO;
 import Login_model.MemberDTO;
 import Login_view.MainGUI;
+import title.titleDAO;
+import title.titleDTO;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -206,7 +208,7 @@ public class JoinGUI {
 					String nickName = tf_join_nick.getText();
 					String sex = null;
 					String likeGenre = null;
-					String title = null;
+					String title = "∏Æ∫‰∆©∫Í ¥∫∫Ò";
 					if (rb_join_man.isSelected()) {
 						sex = rb_join_man.getText();
 					} else if (rb_join_woman.isSelected()) {
@@ -227,6 +229,11 @@ public class JoinGUI {
 					}else if(cb_join_animation.isSelected()) {
 						likeGenre = "ANIMATION";
 					}
+					
+					titleDAO tdao = new titleDAO();
+					titleDTO tdto = new titleDTO("¿¸√º¿Â∏£", "∞°¿‘√‡«œ", "∏Æ∫‰∆©∫Í ¥∫∫Ò", id);
+					tdao.newTitle(tdto);
+					
 					int age = Integer.parseInt((String) cb_join_age.getSelectedItem());
 					if(pw.equals(pwCheck)) {
 						int cnt = dao.joinInsert(new MemberDTO(id, pw, nickName, name, age, sex, likeGenre, title));

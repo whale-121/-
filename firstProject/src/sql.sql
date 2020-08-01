@@ -23,3 +23,23 @@ select * from reviews where MEM_NN = '¾ÓÆÎ' order by review_no asc
 >>>>>>> refs/remotes/origin/master
 
 insert into favorite values (null, '¾ÓÆÎ',(select count(*) from reviews where nickname = '¾ÓÆÎ'), 'duddnr');
+
+update member set like_genre = 'ACTION' where id = 'duddnr';
+
+select count(*) from reviews where mem_nn = (select nickname from member where id = 'wldnd' ) and genre = 'ACTION';
+
+select * from reviews;
+
+insert into title values('ACTION','ÆòÁ¡ 1Á¡ 10°³ ÀÌ»ó', '1Á¡Àº ÆòÁ¡ÀÎ°¡ ¼ýÀÚÀÎ°¡','wldnd');
+
+select count(*) from reviews where mem_nn = (select nickname from member where id = 'wldnd' ) and point = 3
+
+
+select title
+from member
+where nickname = (select mem_nn from reviews where review_no = 1);
+
+
+
+select * from title where mem_id='wldnd';
+				

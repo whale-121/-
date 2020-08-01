@@ -13,6 +13,9 @@ import javax.swing.SwingConstants;
 
 import Login_model.MemberDTO;
 import Login_view.UserGUI;
+import oracle.net.aso.d;
+import title.titleDAO;
+import title.titleDTO;
 
 public class mypage {
 
@@ -79,6 +82,9 @@ public class mypage {
 		JButton btn_info = new JButton("\uB0B4 \uC815\uBCF4");
 		btn_info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+
 				MyInfo mi = new MyInfo(dto);
 				
 			}

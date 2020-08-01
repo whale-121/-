@@ -48,6 +48,58 @@ public class MemberDAO {
 		}
 
 	}
+	public String titleSelect(int reviewNumber) {
+		String title = null;
+		getConn();
+		String sql = "select title from member where nickname = (select mem_nn from reviews where review_no = ?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, reviewNumber);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				title = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return title;
+	}
+
+	
+	public int updateTitle(String title, MemberDTO dto) {
+		int cnt = 0;
+		getConn();
+		String sql = "update member set title = ? where id = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, title);
+			psmt.setString(2, dto.getId());
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return cnt;
+	}
+	public int updateGenre(String genre,MemberDTO dto) {
+		int cnt = 0;
+		getConn();
+		String sql = "update member set like_genre = ? where id = ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, genre);
+			psmt.setString(2, dto.getId());
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return cnt;
+	}
 
 	public MemberDTO loginSelect(String id, String pw) {
 		MemberDTO dto = null;
@@ -96,6 +148,8 @@ public class MemberDAO {
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 
 		return cnt;
